@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/javascript-node
 {
-	"name": "Tekton Tutorial",
+	"name": "Knative Tutorial",
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update 'VARIANT' to pick a Node version: 10, 12, 14
@@ -17,6 +17,7 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
+		"workbench.colorTheme": "August - Drawbridge",
 		"vs-kubernetes": { 
 			"vs-kubernetes.namespace": "", 
 			"vs-kubernetes.kubectl-path": "/usr/local/bin/kubectl", 
