@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Channel and Subscribers :: Knative Tutorial</title>
-    <link rel="canonical" href="https://redhat-developer-demos.github.io/knative-tutorial/knative-tutorial/eventing/channel-and-subscribers.html">
+    <title>Channel and Subscribers :: Knative Tutorial Test</title>
+    <link rel="canonical" href="https://hatmarch.github.io/knative-tutorial/knative-tutorial/eventing/channel-and-subscribers.html">
     <link rel="prev" href="eventing-src-to-sink.html">
     <link rel="next" href="eventing-trigger-broker.html">
     <meta name="generator" content="Antora 2.3.4">
@@ -15,7 +15,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-developer-demos.github.io/knative-tutorial">Knative Tutorial</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://hatmarch.github.io/knative-tutorial">Knative Tutorial Test</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -552,7 +552,7 @@
 <div class="sect2">
 <h3 id="eventing-create-event-channel"><a class="anchor" href="#eventing-create-event-channel"></a>Create Event Channel</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/channel.yaml">channel.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/channel.yaml">channel.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: messaging.knative.dev/v1
 kind: Channel
@@ -594,7 +594,7 @@ metadata:
 <div class="tab-pane" aria-labelledby="tabset1_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/channel.yaml">channel.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/channel.yaml">channel.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -653,7 +653,7 @@ eventinghello-ch True  <a href="http://eventinghello-ch-kn-channel.knativetutori
 <div class="sect2">
 <h3 id="eventing-create-event-source"><a class="anchor" href="#eventing-create-event-source"></a>Create Event Source</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/event-source.yaml">event-source.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/event-source.yaml">event-source.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sources.knative.dev/v1beta1
 kind: PingSource
@@ -710,7 +710,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset3_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/event-source.yaml">event-source.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/event-source.yaml">event-source.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -777,7 +777,7 @@ event-greeter-ping-source   True             http://eventinghello-ch-kn-channel.
 <div class="sect2">
 <h3 id="eventing-create-subscribers-services"><a class="anchor" href="#eventing-create-subscribers-services"></a>Create Subscriber Services</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/eventing-helloa-sink.yaml">eventing-helloa-sink.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventing-helloa-sink.yaml">eventing-helloa-sink.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -803,7 +803,7 @@ spec:
 </table>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/eventing-hellob-sink.yaml">eventing-hellob-sink.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventing-hellob-sink.yaml">eventing-hellob-sink.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -856,7 +856,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset5_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/eventing-helloa-sink.yaml">eventing-helloa-sink.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-helloa-sink.yaml">eventing-helloa-sink.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -891,7 +891,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset6_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/eventing-hellob-sink.yaml">eventing-hellob-sink.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-hellob-sink.yaml">eventing-hellob-sink.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -971,7 +971,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset7_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/eventing-helloa-sub.yaml">eventing-helloa-sub.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-helloa-sub.yaml">eventing-helloa-sub.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -1006,7 +1006,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset8_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/eventing-hellob-sub.yaml">eventing-hellob-sub.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-hellob-sub.yaml">eventing-hellob-sub.yaml</a></code></pre>
 </div>
 </div>
 </div>

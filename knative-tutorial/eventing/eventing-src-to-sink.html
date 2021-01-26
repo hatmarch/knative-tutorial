@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Eventing Source to Sink :: Knative Tutorial</title>
-    <link rel="canonical" href="https://redhat-developer-demos.github.io/knative-tutorial/knative-tutorial/eventing/eventing-src-to-sink.html">
+    <title>Eventing Source to Sink :: Knative Tutorial Test</title>
+    <link rel="canonical" href="https://hatmarch.github.io/knative-tutorial/knative-tutorial/eventing/eventing-src-to-sink.html">
     <link rel="prev" href="eventing.html#eventing-prerequisite">
     <link rel="next" href="channel-and-subscribers.html">
     <meta name="generator" content="Antora 2.3.4">
@@ -15,7 +15,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-developer-demos.github.io/knative-tutorial">Knative Tutorial</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://hatmarch.github.io/knative-tutorial">Knative Tutorial Test</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -566,7 +566,7 @@ sinkbindings      sources.knative.dev           true         SinkBinding</code><
 <p>Let&#8217;s see how a simple source, the <strong>PingSource</strong> looks like :</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/eventinghello-source.yaml">eventinghello-source.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventinghello-source.yaml">eventinghello-source.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sources.knative.dev/v1beta1
 kind: PingSource <i class="conum" data-value="1"></i><b>(1)</b>
@@ -603,7 +603,7 @@ spec: <i class="conum" data-value="2"></i><b>(2)</b>
 <p><strong>Knative Eventing Sink</strong> is how you specify the event receiver&#8201;&#8212;&#8201;that is the consumer of the event--. Sinks can be invoked directly in a point-to-point fashion by referencing them via the Event Source&#8217;s <code>sink</code> as shown below:</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/eventinghello-source.yaml">eventinghello-source.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventinghello-source.yaml">eventinghello-source.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: sources.knative.dev/v1beta1
 kind: PingSource
@@ -662,7 +662,7 @@ spec.  In the above example it defines <strong>schedule</strong>(the cron expres
 <p>Run the following command to create the Knative service that will be used as the subscriber for the cron events:</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/eventing-hello-sink.yaml">eventing-hello-sink.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventing-hello-sink.yaml">eventing-hello-sink.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -709,7 +709,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset1_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/eventing-hello-sink.yaml">eventing-hello-sink.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-hello-sink.yaml">eventing-hello-sink.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -749,7 +749,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset2_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/eventing/knative/eventinghello-source.yaml">eventinghello-source.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventinghello-source.yaml">eventinghello-source.yaml</a></code></pre>
 </div>
 </div>
 </div>

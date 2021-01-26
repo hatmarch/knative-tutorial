@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Scaling :: Knative Tutorial</title>
-    <link rel="canonical" href="https://redhat-developer-demos.github.io/knative-tutorial/knative-tutorial/serving/scaling.html">
+    <title>Scaling :: Knative Tutorial Test</title>
+    <link rel="canonical" href="https://hatmarch.github.io/knative-tutorial/knative-tutorial/serving/scaling.html">
     <link rel="prev" href="traffic-distribution.html">
     <link rel="next" href="../eventing/index.html">
     <meta name="generator" content="Antora 2.3.4">
@@ -15,7 +15,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-developer-demos.github.io/knative-tutorial">Knative Tutorial</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://hatmarch.github.io/knative-tutorial">Knative Tutorial Test</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -571,7 +571,7 @@
 <p>The following snippet shows what a Knative service YAML will look like:</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/serving/service.yaml">service.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/service.yaml">service.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -616,7 +616,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset1_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/serving/knative/service.yaml">service.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/service.yaml">service.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -709,7 +709,7 @@ http $SVC_URL</code></pre>
 <div class="sect2">
 <h3 id="scaling-concurrency-10"><a class="anchor" href="#scaling-concurrency-10"></a>Service with concurrency of 10 requests</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/scaling/service-10.yaml">service-10.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/scaling/service-10.yaml">service-10.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -762,7 +762,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset3_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/serving/knative/service-10.yaml">service-10.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/service-10.yaml">service-10.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -851,7 +851,7 @@ with this current setting of <strong>concurrencyTarget=10</strong> and <strong>u
 <div class="sect2">
 <h3 id="scaling-deploy-service-minscale"><a class="anchor" href="#scaling-deploy-service-minscale"></a>Deploy service</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/scaling/service-min-max-scale.yaml">service-min-max-scale.yaml</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/scaling/service-min-max-scale.yaml">service-min-max-scale.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -911,7 +911,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset5_kubectl">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/staging/serving/knative/service-min-max-scale.yaml">service-min-max-scale.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/service-min-max-scale.yaml">service-min-max-scale.yaml</a></code></pre>
 </div>
 </div>
 </div>
