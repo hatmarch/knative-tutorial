@@ -1,0 +1,38 @@
+[#setup-crw]
+== Running from CodeReady Workspaces
+
+Setup for the tutorial is relatively simple.
+
+First we need to first clone the tutorial sources and set the `TUTORIAL_HOME` environment variable to point to the root directory of the tutorial.
+
+From within a CodeReady Workspace terminal, run the following command:
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]
+----
+cd $CHE_PROJECTS_ROOT
+git clone -b {branch} {repo}
+export TUTORIAL_HOME="$(pwd)/knative-tutorial"
+----
+
+Next, let's create a project to run our tutorial within.  Make sure you have logged into OpenShift by running this command (and making sure your user is returned):
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]
+----
+oc whoami
+----
+
+[.console-output]
+[source,bash]
+----
+%USER%
+----
+
+and then run the following command within the terminal
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]
+----
+oc new-project %USER%-knativetutorial
+----
