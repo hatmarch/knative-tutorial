@@ -30,7 +30,7 @@ asciidoc:
     knative-eventing-version: v0.17.8
     knative-sources-version: v0.17.7
     kn-client-version: v0.17.3
-    kubernetes-cli: kubectl
+    kubernetes-cli: oc
     release-version: master
     page-pagination: true
     openshift-console-url: https://console-openshift-console.apps.example.com
