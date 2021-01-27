@@ -5,7 +5,7 @@ set -o pipefail
 
 KSVC_NAME=${1:-'greeter'}
 
-KSVC_HOST=$(oc get rt $KSVC_NAME -o yaml | yq read - 'status.url')
+KSVC_HOST=$(kubectl get rt $KSVC_NAME -o yaml | yq read - 'status.url')
 
 if [ $# -le 1 ]
 then
