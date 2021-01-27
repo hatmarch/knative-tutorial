@@ -50,7 +50,7 @@ kn::
 [.console-output]
 [source,bash,subs="attributes+"]
 ----
-Creating service 'greeter' in namespace 'knativetutorial':
+Creating service 'greeter' in namespace '%USER%-{tutorial-namespace}':
 
   0.015s The Configuration is still working to reflect the latest desired specification.
   0.076s The Route is still working to reflect the latest desired specification.
@@ -73,7 +73,7 @@ After successful deployment of the service we should see a Kubernetes Deployment
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get deployments -n {tutorial-namespace}
+kubectl get deployments -n %USER%-{tutorial-namespace}
 ----
 
 [NOTE]
@@ -201,7 +201,7 @@ kn::
 [.console-output]
 [source,subs="+macros,+attributes"]
 ----
-Updating Service 'greeter' in namespace 'knativetutorial':
+Updating Service 'greeter' in namespace '%USER%-{tutorial-namespace}':
 
   0.026s The Configuration is still working to reflect the latest desired specification.
  13.509s Traffic is not yet migrated to the latest revision.
@@ -253,7 +253,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn service -n {tutorial-namespace} delete greeter
+kn service -n %USER%-{tutorial-namespace} delete greeter
 ----
 --
 {kubernetes-cli}::
@@ -262,7 +262,7 @@ kn service -n {tutorial-namespace} delete greeter
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} delete services.serving.knative.dev greeter
+kubectl -n %USER%-{tutorial-namespace} delete services.serving.knative.dev greeter
 ----
 --
 ====

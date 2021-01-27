@@ -23,7 +23,7 @@ Minikube::
 [#camel-k-k8s-install]
 [source,bash,subs="+quotes,+attributes,+macros"]
 -----
-kamel install --namespace {tutorial-namespace} --olm=false --wait
+kamel install --namespace %USER%-{tutorial-namespace} --olm=false --wait
 -----
 
 As with other installations in this tutorial, this process will take a few minutes for the Camel-K pods to be up and running.  You can monitor the progress of the installation by watching the pods in namespace `{tutorial-namespace}`.
@@ -33,7 +33,7 @@ As with other installations in this tutorial, this process will take a few minut
 [#camel-k-watch-pods]
 [source,bash,subs="+quotes,+attributes,+macros"]
 -----
-watch "kubectl -n {tutorial-namespace} get pods"
+watch "kubectl -n %USER%-{tutorial-namespace} get pods"
 -----
 
 [NOTE]
@@ -73,7 +73,7 @@ In OpenShift, the `kamel install` command will not install Camel-K operator in e
 [#configure-maven-repo]
 === Configure Camel-k to build faster 
 
-Camel-K uses https://maven.apache.org[Apache Maven] to build the integration kits and its related containers. The Apache Maven settings for Camel K are stored in a ConfigMap `camel-k-maven-settings` in the {tutorial-namespace} namespace. One of the ways to make the build faster is by using a maven repository manager such as https://www.sonatype.com/nexus-repository-oss[Sonatype Nexus], the repository manager helps in caching the maven artifacts from remote repositories and serves them from local the subsequent times they are asked to be downloaded.
+Camel-K uses https://maven.apache.org[Apache Maven] to build the integration kits and its related containers. The Apache Maven settings for Camel K are stored in a ConfigMap `camel-k-maven-settings` in the %USER%-{tutorial-namespace} namespace. One of the ways to make the build faster is by using a maven repository manager such as https://www.sonatype.com/nexus-repository-oss[Sonatype Nexus], the repository manager helps in caching the maven artifacts from remote repositories and serves them from local the subsequent times they are asked to be downloaded.
 
 Edit the file `$TUTORIAL_HOME/install/utils/camel-k-maven-settings.xml` to adjust to your maven repository settings:
 
@@ -85,7 +85,7 @@ Create the ConfigMap using the command:
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 kubectl create configmap \
-  -n {tutorial-namespace} my-camel-k-maven-settings \
+  -n %USER%-{tutorial-namespace} my-camel-k-maven-settings \
   --from-file=settings.xml="$TUTORIAL_HOME/install/utils/camel-k-maven-settings.xml"
 ----
 
@@ -108,7 +108,7 @@ If you don't have a https://www.sonatype.com/download-oss-sonatype[Sonatype Nexu
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n {tutorial-namespace} -f $TUTORIAL_HOME/install/utils/nexus.yaml
+kubectl apply -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/nexus.yaml
 ----
 
 Wait for the nexus pod to be ready:
@@ -116,7 +116,7 @@ Wait for the nexus pod to be ready:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get -n {tutorial-namespace} pods
+watch kubectl get -n %USER%-{tutorial-namespace} pods
 ----
 
 Once nexus is running you should see the following pod in the `{tutorial-namespace}`:
@@ -134,7 +134,7 @@ The nexus repository can be opened in your browser using the command:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-minikube -p {tutorial-namespace} service -n {tutorial-namespace} nexus
+minikube -p %USER%-{tutorial-namespace} service -n %USER%-{tutorial-namespace} nexus
 ----
 
 You need to use user `admin` to login. Nexus uses a generated password, to retrieve the generated password run:
@@ -142,7 +142,7 @@ You need to use user `admin` to login. Nexus uses a generated password, to retri
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-export NEXUS_POD=$(kubectl -n knativetutorial get pods \
+export NEXUS_POD=$(kubectl -n %USER%-{tutorial-namespace} get pods \
   -lapp=nexus -ojsonpath='{.items[0].metadata.name}')
 kubectl exec $NEXUS_POD -- cat /nexus-data/admin.password
 ----

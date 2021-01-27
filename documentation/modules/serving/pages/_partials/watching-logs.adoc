@@ -1,5 +1,5 @@
 ifndef::workshop[]
-[kube-ns='knativetutorial']
+[kube-ns='%USER%-{tutorial-namespace}']
 [kube-svc='']
 
 In the eventing related subsections of this tutorial, event sources are configured to emit events every minute with a `CronJobSource` or with a `ContainerSource`.  

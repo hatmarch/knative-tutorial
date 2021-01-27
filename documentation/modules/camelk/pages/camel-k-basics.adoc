@@ -200,7 +200,7 @@ kamelets               kl           camel.apache.org   true         Kamelet
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kamel -n {tutorial-namespace} get
+watch kamel -n %USER%-{tutorial-namespace} get
 ----
 
 A successful integration deployment should show the following output:
@@ -221,21 +221,21 @@ kn::
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kn -n {tutorial-namespace} service describe echoer
+kn -n %USER%-{tutorial-namespace} service describe echoer
 ----
 
 [.console-output]
 [source,bash]
 ----
 Name:       echoer
-Namespace:  knativetutorial
+Namespace:  %USER%-{tutorial-namespace}
 Labels:     camel.apache.org/generation=1, camel.apache.org/integration=echoer
 Age:        5m
-URL:        http://echoer.knativetutorial.example.com
+URL:        http://echoer.%USER%-{tutorial-namespace}.example.com
 
 Revisions:
   100%  @latest (echoer-g6g68) [1] (5m)
-        Image:  10.105.219.172/knativetutorial/camel-k-kit-buifr3v968fjg6sum6e0@sha256:06588f7dfb53e0e6027c975e206c8bb67a03311a90ed2ccafdc883e16c627f25 (at 06588f)
+        Image:  10.105.219.172/%USER%-{tutorial-namespace}/camel-k-kit-buifr3v968fjg6sum6e0@sha256:06588f7dfb53e0e6027c975e206c8bb67a03311a90ed2ccafdc883e16c627f25 (at 06588f)
 
 Conditions:
   OK TYPE                   AGE REASON
@@ -250,14 +250,14 @@ Conditions:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n {tutorial-namespace} get ksvc echoer
+kubectl -n %USER%-{tutorial-namespace} get ksvc echoer
 ----
 
 [.console-output]
 [source,bash]
 ----
 NAME     URL                                         LATESTCREATED   LATESTREADY    READY   REASON
-echoer   http://echoer.knativetutorial.example.com   echoer-g6g68    echoer-g6g68   True
+echoer   http://echoer.%USER%-{tutorial-namespace}.example.com   echoer-g6g68    echoer-g6g68   True
 ----
 --
 ====

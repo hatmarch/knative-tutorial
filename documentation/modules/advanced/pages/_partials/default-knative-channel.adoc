@@ -18,7 +18,7 @@ data:
       apiVersion: messaging.knative.dev/v1
       kind: InMemoryChannel#<.>
     namespaceDefaults:
-      knativetutorial:
+      %USER%-{tutorial-namespace}:
         apiVersion: messaging.knative.dev/v1beta1
         kind: KafkaChannel#<.>
         spec:
@@ -53,13 +53,13 @@ kn::
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kn channel -n {tutorial-namespace} ls
+kn channel -n %USER%-{tutorial-namespace} ls
 ----
 [.console-output]
 [source,bash]
 ----
 NAME           TYPE           URL                                                                AGE     READY   REASON
-my-events-ch   KafkaChannel   http://my-events-ch-kn-channel.knativetutorial.svc.cluster.local   2m55s   True
+my-events-ch   KafkaChannel   http://my-events-ch-kn-channel.%USER%-{tutorial-namespace}.svc.cluster.local   2m55s   True
 ----
 --
 {kubernetes-cli}::
@@ -68,13 +68,13 @@ my-events-ch   KafkaChannel   http://my-events-ch-kn-channel.knativetutorial.svc
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl get -n {tutorial-namespace} channels
+kubectl get -n %USER%-{tutorial-namespace} channels
 ----
 [.console-output]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
 NAME           READY   URL                                                                
-my-events-ch   True    http://my-events-ch-kn-channel.knativetutorial.svc.cluster.local 
+my-events-ch   True    http://my-events-ch-kn-channel.%USER%-{tutorial-namespace}.svc.cluster.local 
 ----
 --
 ====
@@ -84,14 +84,14 @@ And a corresponding `kafkachannel.messaging.knative.dev` with the same name `my-
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl get -n {tutorial-namespace} kafkachannels
+kubectl get -n %USER%-{tutorial-namespace} kafkachannels
 ----
 
 [.console-output]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
 NAME           READY  URL                                                              
-my-events-ch   True   http://my-events-ch-kn-channel.knativetutorial.svc.cluster.local 
+my-events-ch   True   http://my-events-ch-kn-channel.%USER%-{tutorial-namespace}.svc.cluster.local 
 ----
 
 When you now list the topics that are available in Kafka using the script `$TUTORIAL_HOME/bin/kafka-list-topics.sh`, you should see a topic corresponding to your Channel `my-events-ch`:
@@ -147,7 +147,7 @@ kn::
 [.console-input]
 [source,bash,subs="attributes+,+macros",linenums]
 ----
-kn channel delete -n {tutorial-namespace} my-events-ch
+kn channel delete -n %USER%-{tutorial-namespace} my-events-ch
 ----
 --
 {kubernetes-cli}::
@@ -156,7 +156,7 @@ kn channel delete -n {tutorial-namespace} my-events-ch
 [.console-input]
 [source,bash,subs="attributes+,+macros",linenums]
 ----
-kubectl -n {tutorial-namespace} delete  channels.messaging.knative.dev my-events-ch
+kubectl -n %USER%-{tutorial-namespace} delete  channels.messaging.knative.dev my-events-ch
 ----
 --
 ====

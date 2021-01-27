@@ -125,7 +125,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn source ping list -n {tutorial-namespace}
+kn source ping list -n %USER%-{tutorial-namespace}
 ----
 --
 {kubernetes-cli}::
@@ -134,7 +134,7 @@ kn source ping list -n {tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} get \
+kubectl -n %USER%-{tutorial-namespace} get \
   pingsources.sources.knative.dev \
   eventinghello-ping-source
 ----
@@ -162,7 +162,7 @@ eventinghello-ping-source   */2 * * * *   ksvc:eventinghello   99s   4 OK / 4   
 [source,bash]
 ----
 NAME                        SINK                                                     AGE   READY   REASON
-eventinghello-ping-source   http://eventinghello.knativetutorial.svc.cluster.local   47s   True
+eventinghello-ping-source   http://eventinghello.%USER%-{tutorial-namespace}.svc.cluster.local   47s   True
 ----
 --
 ====
@@ -191,8 +191,8 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn source ping delete -n {tutorial-namespace} eventinghello-ping-source 
-kn service delete -n {tutorial-namespace} eventinghello
+kn source ping delete -n %USER%-{tutorial-namespace} eventinghello-ping-source 
+kn service delete -n %USER%-{tutorial-namespace} eventinghello
 ----
 --
 {kubernetes-cli}::
@@ -201,8 +201,8 @@ kn service delete -n {tutorial-namespace} eventinghello
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} delete -f eventinghello-source.yaml
-kubectl -n {tutorial-namespace} delete -f eventing-hello-sink.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventinghello-source.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-hello-sink.yaml
 ----
 --
 ====

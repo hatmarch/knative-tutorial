@@ -83,7 +83,7 @@ For better clarity and understanding let us <<scaling-cleanup,clean up>> the dep
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn -n {tutorial-namespace}  service delete greeter
+kn -n %USER%-{tutorial-namespace}  service delete greeter
 ----
 
 :service-file: service-10.yaml
@@ -200,5 +200,5 @@ When all requests are done and if we are beyond the `scale-to-zero-grace-period`
 [source,bash,subs="attributes+,+macros"]
 [.console-input]
 ----
-kn service delete -n {tutorial-namespace} prime-generator
+kn service delete -n %USER%-{tutorial-namespace} prime-generator
 ----

@@ -52,7 +52,7 @@ kubectl version
 ----
 copyToClipboard::camelk-set-k8s-version[]
 
-* Make sure to be on `{tutorial-namespace}` namespace or use you night need to use `--namespace {tutorial-namespace}` in all commands
+* Make sure to be on `{tutorial-namespace}` namespace or use you night need to use `--namespace %USER%-{tutorial-namespace}` in all commands
 
 [TIP]
 =====
@@ -60,7 +60,7 @@ If you are on minikube then **kubens** utility can be used to switch to kubernet
 [#camelk-set-k8s-ns]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubens {tutorial-namespace}
+kubens %USER%-{tutorial-namespace}
 ----
 copyToClipboard::camelk-set-k8s-ns[]
 =====
@@ -111,7 +111,7 @@ If you are not on `{tutorial-namespace}` project, use the following command  to 
 [#camelk-change-oc-project]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc project {tutorial-namespace}
+oc project %USER%-{tutorial-namespace}
 ----
 copyToClipboard::camelk-change-oc-project[]
 

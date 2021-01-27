@@ -85,7 +85,7 @@ As the Fruityvice services self-signed certificates which Quarkus does not allow
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl apply -n {tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
+kubectl apply -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
 ----
 
 Wait for the frutiyvice proxy to be running:
@@ -125,7 +125,7 @@ Run the following command to deploy the `fruit-producer` integration:
 [#kamel-cbr-deploy-fruit-producer]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kamel -n {tutorial-namespace} run \
+kamel -n %USER%-{tutorial-namespace} run \
  --wait \
  --dependency camel:log \
  --dependency camel:jackson \
@@ -283,7 +283,7 @@ spec:
 [#kamel-deploy-data-processor]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n {tutorial-namespace} -f eip/fruits-processor.yaml
+kubectl apply -n %USER%-{tutorial-namespace} -f eip/fruits-processor.yaml
 ----
 
 As the Camel-K controller takes few minutes to deploy the CamelSource, you can watch the pods of the `{tutorial-namespace}` namespace for its status:
@@ -313,7 +313,7 @@ Wondering why `fruit-producer` is not listed ?
 [#kamel-cbr-query-camelsources]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get  -n {tutorial-namespace} camelsources
+watch kubectl get  -n %USER%-{tutorial-namespace} camelsources
 ----
 
 When the CamelSource deployment is successful you will see it in `READY` state as shown:
@@ -336,7 +336,7 @@ You can deploy the `fruit-events-display` application using the command:
 [#kamel-cbr-deploy-event-sub]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n {tutorial-namespace} \
+kubectl apply -n %USER%-{tutorial-namespace} \
   -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
 ----
 
@@ -368,7 +368,7 @@ Minikube::
 [#kamel-open-fruit-ui]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-minikube -p knativetutorial -n {tutorial-namespace} service fruit-events-display
+minikube -p %USER%-{tutorial-namespace} -n %USER%-{tutorial-namespace} service fruit-events-display
 ----
 --
 OpenShift::
@@ -378,7 +378,7 @@ OpenShift::
 [#kamel-open-fruit-expose]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-oc expose -n {tutorial-namespace} service fruit-events-display
+oc expose -n %USER%-{tutorial-namespace} service fruit-events-display
 ----
 
 Once you have exposed the service, you can open the OpenShift route in the web browser:
@@ -387,7 +387,7 @@ Once you have exposed the service, you can open the OpenShift route in the web b
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-oc get -n {tutorial-namespace} route fruit-events-display
+oc get -n %USER%-{tutorial-namespace} route fruit-events-display
 ----
 --
 ====
@@ -431,16 +431,16 @@ You can deploy the Knative Event Trigger using the following command:
 [#kamel-cbr-deploy-trigger]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n {tutorial-namespace} -f eip/sugary-fruits.yaml
+kubectl apply -n %USER%-{tutorial-namespace} -f eip/sugary-fruits.yaml
 ----
 
-Let us check the status of the Trigger using the command `kubectl -n {tutorial-namespace} get triggers` which should return one trigger called `sugary-fruits` with ready state as shown below. 
+Let us check the status of the Trigger using the command `kubectl -n %USER%-{tutorial-namespace} get triggers` which should return one trigger called `sugary-fruits` with ready state as shown below. 
 
 [.console-input]
 [#kamel-cbr-list-triggers]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n {tutorial-namespace} get triggers
+kubectl -n %USER%-{tutorial-namespace} get triggers
 ----
 
 As the trigger will dispatch its filtered event to `fruit-events-display` , the subscriber URI of the Trigger will be that of `fruit-events-display` service.
@@ -449,7 +449,7 @@ As the trigger will dispatch its filtered event to `fruit-events-display` , the 
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 NAME           READY BROKER    SUBSCRIBER_URI
-sugary-fruits  True  default   http://fruits-events-display.knativetutorial.svc.cluster.local/
+sugary-fruits  True  default   http://fruits-events-display.%USER%-{tutorial-namespace}.svc.cluster.local/
 ----
 
 [[verify-e2e]]
@@ -478,12 +478,12 @@ image::cbr_app_ui_with_data.png[align="center"]
 [#camelk-cbr-cleanup]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kamel delete  -n {tutorial-namespace} fruits-producer
-kubectl delete  -n {tutorial-namespace} -f eip/fruits-processor.yaml
-kubectl delete  -n {tutorial-namespace} -f eip/sugary-fruits.yaml
-kubectl delete -n {tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
-kubectl delete -n {tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
-kn broker delete  -n {tutorial-namespace} default
-kamel -n {tutorial-namespace} reset
-kamel -n {tutorial-namespace} uninstall
+kamel delete  -n %USER%-{tutorial-namespace} fruits-producer
+kubectl delete  -n %USER%-{tutorial-namespace} -f eip/fruits-processor.yaml
+kubectl delete  -n %USER%-{tutorial-namespace} -f eip/sugary-fruits.yaml
+kubectl delete -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
+kubectl delete -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
+kn broker delete  -n %USER%-{tutorial-namespace} default
+kamel -n %USER%-{tutorial-namespace} reset
+kamel -n %USER%-{tutorial-namespace} uninstall
 ----

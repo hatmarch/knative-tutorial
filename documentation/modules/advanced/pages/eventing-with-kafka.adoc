@@ -179,8 +179,8 @@ Check the Knative Service that was created by the command above. The command sho
 [source,bash,subs="+quotes"]
 ----
 NAME            URL                                                LATEST                  AGE     CONDITIONS   READY   REASON
-event-display   http://event-display.knativetutorial.example.com   event-display-2mhz8     4h11m   3 OK / 3     True
-#eventinghello  http://eventinghello.knativetutorial.example.com   eventinghello-krmch-1   34s     3 OK / 3     True#
+event-display   http://event-display.%USER%-{tutorial-namespace}.example.com   event-display-2mhz8     4h11m   3 OK / 3     True
+#eventinghello  http://eventinghello.%USER%-{tutorial-namespace}.example.com   eventinghello-krmch-1   34s     3 OK / 3     True#
 ----
 
 Make sure to follow the logs using `stern`:
@@ -258,7 +258,7 @@ The deployment of `KafkaSource` will result in a new pod prefixed with "mykafka-
 [#kn-kafka-source-deploy]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl -n {tutorial-namespace} apply -f mykafka-source.yaml
+kubectl -n %USER%-{tutorial-namespace} apply -f mykafka-source.yaml
 ----
 
 [.console-input]
@@ -282,7 +282,7 @@ Check the created sources
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kn sources -n knativetutorial ls
+kn sources -n %USER%-{tutorial-namespace} ls
 ----
 
 [.console-output]
@@ -367,7 +367,7 @@ Open a new terminal and watch the pods of `{tutorial-namespace}` namespace:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get pods -n {tutorial-namespace} 
+watch kubectl get pods -n %USER%-{tutorial-namespace} 
 ----
 
 We will use a utility pod called `kafka-spammer` to send a bunch of messages to KafkaTopic `my-topic`, which in turn will trigger the Knative sink service `eventinghello` to scale up to handle the KakaTopic message events.
@@ -429,7 +429,7 @@ kafkasource-mykafka-source-a29a50ca-4d76-4e65-8b96-1507372bfphb   1/1     Runnin
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 kubectl delete -n kafka pod kafka-spammer
-kubectl delete -n {tutorial-namespace}  -f mykafka-source.yaml
-kubectl delete -n {tutorial-namespace}  -f eventing-hello-sink.yaml
+kubectl delete -n %USER%-{tutorial-namespace}  -f mykafka-source.yaml
+kubectl delete -n %USER%-{tutorial-namespace}  -f eventing-hello-sink.yaml
 kubectl delete -n kafka -f kafka-topic-my-topic.yaml
 ----

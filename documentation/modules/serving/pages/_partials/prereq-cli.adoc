@@ -55,7 +55,7 @@ Client Version: openshift-clients-4.3.0-201910250623-88-g6a937dfe
 Kubernetes Version: v1.16.2
 ----
 
-* Make sure to be on `knativetutorial` OpenShift project
+* Make sure to be on `%USER%-{tutorial-namespace}` OpenShift project
 
 [#right-openshift-project]
 [.console-input]
@@ -70,7 +70,7 @@ If you are not on `{tutorial-namespace}` project, then run following command to 
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc project {tutorial-namespace}
+oc project %USER%-{tutorial-namespace}
 ----
 --
 ====

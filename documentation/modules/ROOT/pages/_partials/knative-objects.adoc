@@ -9,7 +9,7 @@ kubectl::
 [#knative-services]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace}  get services.serving.knative.dev greeter 
+kubectl --namespace %USER%-{tutorial-namespace}  get services.serving.knative.dev greeter 
 ----
 copyToClipboard::knative-services[]
 
@@ -20,7 +20,7 @@ oc::
 [#oc-knative-services]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace}  get services.serving.knative.dev greeter 
+oc --namespace %USER%-{tutorial-namespace}  get services.serving.knative.dev greeter 
 ----
 copyToClipboard::oc-knative-services[]
 --
@@ -38,7 +38,7 @@ kubectl::
 [#knative-configs]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get configurations.serving.knative.dev greeter
+kubectl --namespace %USER%-{tutorial-namespace} get configurations.serving.knative.dev greeter
 ----
 copyToClipboard::knative-configs[]
 
@@ -49,7 +49,7 @@ oc::
 [#oc-knative-configs]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get configurations.serving.knative.dev greeter
+oc --namespace %USER%-{tutorial-namespace} get configurations.serving.knative.dev greeter
 ----
 copyToClipboard::oc-knative-configs[]
 --
@@ -66,7 +66,7 @@ kubectl::
 [#knative-routes]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get routes.serving.knative.dev greeter
+kubectl --namespace %USER%-{tutorial-namespace} get routes.serving.knative.dev greeter
 ----
 copyToClipboard::knative-routes[]
 
@@ -77,7 +77,7 @@ oc::
 [#oc-knative-routes]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get routes.serving.knative.dev greeter
+oc --namespace %USER%-{tutorial-namespace} get routes.serving.knative.dev greeter
 ----
 copyToClipboard::oc-knative-routes[]
 --
@@ -94,7 +94,7 @@ kubectl::
 [#{doc-sec}knative-revisions]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get rev \
+kubectl --namespace %USER%-{tutorial-namespace} get rev \
 --label=serving.knative.dev/service=greeter \
 --sort-by="{.metadata.creationTimestamp}"
 ----
@@ -106,7 +106,7 @@ oc::
 [#{doc-sec}-oc-knative-revisions]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get rev \
+oc --namespace %USER%-{tutorial-namespace} get rev \
  --label=serving.knative.dev/service=greeter \
  --sort-by="{.metadata.creationTimestamp}"
 ----
@@ -126,7 +126,7 @@ kubectl::
 [#knative-config-revisions]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get rev \
+kubectl --namespace %USER%-{tutorial-namespace} get rev \
   -l serving.knative.dev/configuration=greeter \
   --sort-by="{.metadata.creationTimestamp}"
 ----
@@ -140,7 +140,7 @@ oc::
 [#oc-knative-config-revisions]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get rev \
+oc --namespace %USER%-{tutorial-namespace} get rev \
   -l serving.knative.dev/configuration=greeter \
   --sort-by="{.metadata.creationTimestamp}"
 ----
@@ -159,7 +159,7 @@ kubectl::
 [#knative-build]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get builds.build.knative.dev event-greeter-build
+kubectl --namespace %USER%-{tutorial-namespace} get builds.build.knative.dev event-greeter-build
 ----
 copyToClipboard::knative-build[]
 --
@@ -169,7 +169,7 @@ oc::
 [#oc-knative-build]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get builds.build.knative.dev event-greeter-build
+oc --namespace %USER%-{tutorial-namespace} get builds.build.knative.dev event-greeter-build
 ----
 copyToClipboard::oc-knative-build[]
 --
@@ -186,7 +186,7 @@ kubectl::
 [#knative-build-templates]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get buildtemplates.build.knative.dev build-java-maven
+kubectl --namespace %USER%-{tutorial-namespace} get buildtemplates.build.knative.dev build-java-maven
 ----
 copyToClipboard::knative-build-templates[]
 --
@@ -197,7 +197,7 @@ oc::
 [#oc-knative-build-templates]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get buildtemplates.build.knative.dev build-java-maven
+oc --namespace %USER%-{tutorial-namespace} get buildtemplates.build.knative.dev build-java-maven
 ----
 copyToClipboard::oc-knative-build-templates[]
 --
@@ -213,7 +213,7 @@ kubectl::
 [#knative-event-channel]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get channels.eventing.knative.dev ch-event-greeter
+kubectl --namespace %USER%-{tutorial-namespace} get channels.eventing.knative.dev ch-event-greeter
 ----
 copyToClipboard::knative-event-channel[]
 --
@@ -223,7 +223,7 @@ oc::
 [#oc-knative-event-channel]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get channels.eventing.knative.dev ch-event-greeter
+oc --namespace %USER%-{tutorial-namespace} get channels.eventing.knative.dev ch-event-greeter
 ----
 copyToClipboard::oc-knative-event-channel[]
 --
@@ -240,7 +240,7 @@ kubectl::
 [#knative-event-sources]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get cronjobsources.sources.eventing.knative.dev  event-greeter-cronjob-source
+kubectl --namespace %USER%-{tutorial-namespace} get cronjobsources.sources.eventing.knative.dev  event-greeter-cronjob-source
 ----
 copyToClipboard::knative-event-sources[]
 --
@@ -250,7 +250,7 @@ oc::
 [#oc-knative-event-sources]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get cronjobsources.sources.eventing.knative.dev event-greeter-cronjob-source
+oc --namespace %USER%-{tutorial-namespace} get cronjobsources.sources.eventing.knative.dev event-greeter-cronjob-source
 ----
 copyToClipboard::oc-knative-event-sources[]
 --
@@ -267,7 +267,7 @@ kubectl::
 [#knative-event-subscribers]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get subscriptions.eventing.knative.dev event-greeter-subscriber
+kubectl --namespace %USER%-{tutorial-namespace} get subscriptions.eventing.knative.dev event-greeter-subscriber
 ----
 copyToClipboard::knative-event-subscribers[]
 --
@@ -277,7 +277,7 @@ oc::
 [#oc-knative-event-subscribers]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc --namespace {tutorial-namespace} get subscriptions.eventing.knative.dev event-greeter-subscriber
+oc --namespace %USER%-{tutorial-namespace} get subscriptions.eventing.knative.dev event-greeter-subscriber
 ----
 copyToClipboard::oc-knative-event-subscribers[]
 --
@@ -294,7 +294,7 @@ kubectl::
 [#knative-services]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace}  get services.serving.knative.dev event-greeter  
+kubectl --namespace %USER%-{tutorial-namespace}  get services.serving.knative.dev event-greeter  
 ----
 copyToClipboard::knative-services[]
 --
@@ -305,7 +305,7 @@ oc::
 [source,bash,subs="+macros,+attributes"]
 ----
 # get a Knative Service (short name ksvc) called greeter
-oc --namespace {tutorial-namespace}  get services.serving.knative.dev event-greeter 
+oc --namespace %USER%-{tutorial-namespace}  get services.serving.knative.dev event-greeter 
 ----
 copyToClipboard::oc-knative-services[]
 --

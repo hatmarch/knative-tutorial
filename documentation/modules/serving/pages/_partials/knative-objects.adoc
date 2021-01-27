@@ -7,7 +7,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn service list -n {tutorial-namespace}
+kn service list -n %USER%-{tutorial-namespace}
 ----
 
 [.console-output]
@@ -23,7 +23,7 @@ greeter   http://greeter.{tutorial-namespace}.{minikube-nip-io}   greeter-sxnzq-
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace}  get services.serving.knative.dev greeter 
+kubectl --namespace %USER%-{tutorial-namespace}  get services.serving.knative.dev greeter 
 ----
 
 [.console-output]
@@ -42,7 +42,7 @@ greeter   http://greeter.{tutorial-namespace}.{minikube-nip-io}   greeter-sxnzq-
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get configurations.serving.knative.dev greeter
+kubectl --namespace %USER%-{tutorial-namespace} get configurations.serving.knative.dev greeter
 ----
 #end::knative-configs[]
 
@@ -56,7 +56,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn route --namespace {tutorial-namespace} list
+kn route --namespace %USER%-{tutorial-namespace} list
 ----
 
 [.console-output]
@@ -73,7 +73,7 @@ greeter   http://greeter.{tutorial-namespace}.{minikube-nip-io}   True
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-{kubernetes-cli} --namespace {tutorial-namespace} get routes.serving.knative.dev greeter
+{kubernetes-cli} --namespace %USER%-{tutorial-namespace} get routes.serving.knative.dev greeter
 ----
 
 [.console-output]
@@ -96,7 +96,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn revision list --namespace {tutorial-namespace}
+kn revision list --namespace %USER%-{tutorial-namespace}
 ----
 --
 {kubernetes-cli}::
@@ -105,7 +105,7 @@ kn revision list --namespace {tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get rev \
+kubectl --namespace %USER%-{tutorial-namespace} get rev \
 --selector=serving.knative.dev/service=greeter \
 --sort-by="{.metadata.creationTimestamp}"
 ----
@@ -118,7 +118,7 @@ kubectl --namespace {tutorial-namespace} get rev \
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace {tutorial-namespace} get rev \
+kubectl --namespace %USER%-{tutorial-namespace} get rev \
   -l serving.knative.dev/configuration=greeter \
   --sort-by="{.metadata.creationTimestamp}"
 ----

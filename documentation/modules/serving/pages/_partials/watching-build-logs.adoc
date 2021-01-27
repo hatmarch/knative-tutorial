@@ -9,7 +9,7 @@ kubectl::
 --
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl logs -n {tutorial-namespace} <pod-name> -c <build-init-container-name>
+kubectl logs -n %USER%-{tutorial-namespace} <pod-name> -c <build-init-container-name>
 ----
 
 (e.g.)
@@ -18,7 +18,7 @@ To watch the container logs of container `docker-push` within the build pod call
 
 [source,bash]
 ----
-kubectl logs -n {tutorial-namespace} event-greeter-build-pod-2a271e -c build-step-docker-push
+kubectl logs -n %USER%-{tutorial-namespace} event-greeter-build-pod-2a271e -c build-step-docker-push
 ----
 --
 oc::
@@ -26,7 +26,7 @@ oc::
 --
 [source,bash,subs="+macros,+attributes"]
 ----
-oc logs -n {tutorial-namespace} <pod-name> -c <build-init-container-name>
+oc logs -n %USER%-{tutorial-namespace} <pod-name> -c <build-init-container-name>
 ----
 
 (e.g.)
@@ -35,7 +35,7 @@ To watch the container logs of container `docker-push` within the build pod call
 
 [source,bash,subs="+macros,+attributes"]
 ----
-oc logs -n {tutorial-namespace} event-greeter-build-pod-2a271e -c build-step-docker-push
+oc logs -n %USER%-{tutorial-namespace} event-greeter-build-pod-2a271e -c build-step-docker-push
 ----
 --
 ====
@@ -53,7 +53,7 @@ kubectl::
 --
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} get pods event-greeter-build-pod-2986f2 -o yaml |\
+kubectl -n %USER%-{tutorial-namespace} get pods event-greeter-build-pod-2986f2 -o yaml |\
  yq r - spec.initContainers[*].name
 ----
 --
@@ -62,7 +62,7 @@ oc::
 --
 [source,bash,subs="+macros,+attributes"]
 ----
-oc -n {tutorial-namespace} get pods event-greeter-build-pod-2986f2 -o yaml |\
+oc -n %USER%-{tutorial-namespace} get pods event-greeter-build-pod-2986f2 -o yaml |\
  yq r - spec.initContainers[*].name
 ----
 --

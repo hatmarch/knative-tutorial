@@ -87,7 +87,7 @@ A successful event display should show the following pod in the `{tutorial-names
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get -n {tutorial-namespace} pods
+watch kubectl get -n %USER%-{tutorial-namespace} pods
 ----
 
 List the Knative Service `event-display`:
@@ -100,14 +100,14 @@ kn::
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kn service -n {tutorial-namespace} ls
+kn service -n %USER%-{tutorial-namespace} ls
 ----
 
 [.console-output]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 NAME            URL                                                LATEST                AGE   CONDITIONS   READY   REASON
-event-display   http://event-display.knativetutorial.example.com   event-display-7jvmm   85s   3 OK / 3     True
+event-display   http://event-display.%USER%-{tutorial-namespace}.example.com   event-display-7jvmm   85s   3 OK / 3     True
 ----
 
 --
@@ -117,14 +117,14 @@ event-display   http://event-display.knativetutorial.example.com   event-display
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n {tutorial-namespace} get ksvc
+kubectl -n %USER%-{tutorial-namespace} get ksvc
 ----
 
 [.console-output]
 [source,bash]
 ----
 NAME            URL                                                LATESTCREATED         LATESTREADY           READY   REASON
-event-display   http://event-display.knativetutorial.example.com   event-display-7jvmm   event-display-7jvmm   True
+event-display   http://event-display.%USER%-{tutorial-namespace}.example.com   event-display-7jvmm   event-display-7jvmm   True
 ----
 --
 ====
@@ -185,16 +185,16 @@ To deploy the CamelSource run the following command:
 [#deploy-greeter-camelsource]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n {tutorial-namespace} -f get-started/timed-greeter-source.yaml
+kubectl apply -n %USER%-{tutorial-namespace} -f get-started/timed-greeter-source.yaml
 ----
 
-A successful deployment will show the CamelSource `timed-greeter` in ready state along with its pods in the {tutorial-namespace} namespace. 
+A successful deployment will show the CamelSource `timed-greeter` in ready state along with its pods in the %USER%-{tutorial-namespace} namespace. 
 
 [.console-input]
 [#camel-k-watch-camelsources]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl -n {tutorial-namespace} get camelsources
+watch kubectl -n %USER%-{tutorial-namespace} get camelsources
 ----
 
 When the camel source is successfully running you will see it in "READY" state `True`:
@@ -212,7 +212,7 @@ Once the `timed-greeter` is ready, you will notice Knative sink `event-display` 
 [.console-output]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-# watch kubectl -n {tutorial-namespace} get pods
+# watch kubectl -n %USER%-{tutorial-namespace} get pods
 NAME                                              READY   STATUS    AGE
 camel-k-operator-84d7896b68-sgmpk                 1/1     Running   2m36s
 event-display-dmq4s-deployment-775789b565-fnf2t   2/2     Running   17s
@@ -225,7 +225,7 @@ Open a new terminal and run the following command to start watching the events t
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-stern -n {tutorial-namespace} event-display -c user-container
+stern -n %USER%-{tutorial-namespace} event-display -c user-container
 ----
 
 The `stern` command above should show the following output:
@@ -242,7 +242,7 @@ event-... user-container Validation: valid
 event-... user-container Context Attributes,
 event-... user-container   specversion: 0.3
 event-... user-container   type: org.apache.camel.event
-event-... user-container   source: camel-source:knativetutorial/timed-greeter
+event-... user-container   source: camel-source:%USER%-{tutorial-namespace}/timed-greeter
 ----
 
 [#cleanup]
@@ -253,7 +253,7 @@ event-... user-container   source: camel-source:knativetutorial/timed-greeter
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 $TUTORIAL_HOME/bin/clean-completed.sh
-kubectl -n {tutorial-namespace} delete camelsource timed-greeter
+kubectl -n %USER%-{tutorial-namespace} delete camelsource timed-greeter
 ----
 
 After few seconds you will see the `event-display` Knative Service scaling down to zero since it no longer receives events via the event source.

@@ -68,7 +68,7 @@ A successful create of the `greeter` service should show a response like
 [.console-output]
 [source,bash,subs="+attributes"]
 ----
-Creating service 'greeter' in namespace 'knativetutorial':
+Creating service 'greeter' in namespace '%USER%-{tutorial-namespace}':
 
   0.028s The Configuration is still working to reflect the latest desired specification.
   0.097s The Route is still working to reflect the latest desired specification.
@@ -97,7 +97,7 @@ kn service list
 [source,text,subs="+quotes,+attributes"]
 ----
 NAME      #URL#                                                   LATEST            AGE   CONDITIONS   READY   REASON
-greeter   #http://greeter.knativetutorial.192.168.64.13.nip.io#  greeter-sxnzq-1   10m   3 OK / 3     True
+greeter   #http://greeter.%USER%-{tutorial-namespace}.192.168.64.13.nip.io#  greeter-sxnzq-1   10m   3 OK / 3     True
 ----
 
 === Invoke Service
@@ -121,7 +121,7 @@ endif::[]
 ====
 For all the examples in the tutorial we have configured the xref:setup:minikube.adoc#configure-ingress-to-gateway[Ingress Controller and domain], which will use the domain suffix format like `**<service-name>.<namespace>.<minikube ip>.nip.io**`.
 
-If you have not using the Ingress controller configuration then the service has to be invoked like `http $IP_ADDRESS 'Host:greeter.knativetutorial.example.com'`, you noticed that we added a **Host** header to the request with value `greeter.knativetutorial.example.com`. This FQDN is automatically assigned to your Knative service by the Knative Routes and uses the following format: `**<service-name>.<namespace>.<domain-suffix>**`.
+If you have not using the Ingress controller configuration then the service has to be invoked like `http $IP_ADDRESS 'Host:greeter.%USER%-{tutorial-namespace}.example.com'`, you noticed that we added a **Host** header to the request with value `greeter.%USER%-{tutorial-namespace}.example.com`. This FQDN is automatically assigned to your Knative service by the Knative Routes and uses the following format: `**<service-name>.<namespace>.<domain-suffix>**`.
 ====
 
 [#kn-update-ksvc]
@@ -134,7 +134,7 @@ In previous chapter we deployed a new revision of Knative service by adding an e
 [.console-input]
 [source,bash,subs="+macros,attributes+"]
 ----
-kn service update greeter --namespace {tutorial-namespace} \
+kn service update greeter --namespace %USER%-{tutorial-namespace} \
   --env "MESSAGE_PREFIX=Namaste"
 ----
 
@@ -169,7 +169,7 @@ Sometime you wish you get the YAML of the Knative service to build a new service
 [.console-input]
 [source,bash,subs="+macros,attributes+"]
 ----
-kn service describe --namespace {tutorial-namespace} greeter 
+kn service describe --namespace %USER%-{tutorial-namespace} greeter 
 ----
 
 The describe should show you a short summary of your service : 
@@ -178,7 +178,7 @@ The describe should show you a short summary of your service :
 [source,subs="+macros,attributes+"]
 ----
 Name:       greeter
-Namespace:  knativetutorial
+Namespace:  %USER%-{tutorial-namespace}
 Age:        1m
 URL:        http://greeter.{tutorial-namespace}.{minikube-nip-io}
 
@@ -200,18 +200,18 @@ To list all the revisions as part of the `describe` command use:
 [.console-input]
 [source,subs="+macros,attributes+"]
 ----
-kn service describe --namespace {tutorial-namespace} greeter -v
+kn service describe --namespace %USER%-{tutorial-namespace} greeter -v
 ----
 [.console-output]
 [source,text,subs="+quotes,+macros,attributes+"]
 ----
 Name:         greeter
-Namespace:    knativetutorial
+Namespace:    %USER%-{tutorial-namespace}
 Annotations:  serving.knative.dev/creator=minikube-user
               serving.knative.dev/lastModifier=minikube-user
 Age:          14m
 URL:          http://greeter.{tutorial-namespace}.{minikube-nip-io}
-Cluster:      http://greeter.knativetutorial.svc.cluster.local
+Cluster:      http://greeter.%USER%-{tutorial-namespace}.svc.cluster.local
 
 Revisions:
   100%  @latest (greeter-tmvxm-2) [2] (10m)
@@ -234,7 +234,7 @@ To get the Knative service url use `describe` with `-o url` option:
 [.console-input]
 [source,bash]
 ----
-kn service describe --namespace {tutorial-namespace}  greeter -o url
+kn service describe --namespace %USER%-{tutorial-namespace}  greeter -o url
 ----
 
 [.console-output]
@@ -256,7 +256,7 @@ You can list the available revisions of a Knative service using:
 [.console-input]
 [source,bash,subs="+macros,attributes+"]
 ----
-kn revision list --namespace {tutorial-namespace}
+kn revision list --namespace %USER%-{tutorial-namespace}
 ----
 
 [.console-output]
@@ -277,14 +277,14 @@ To get the details about a specific revision you can use the command:
 [.console-input]
 [source,bash,subs="+macros,attributes+"]
 ----
-kn revision describe --namespace {tutorial-namespace} greeter-twpgf-1
+kn revision describe --namespace %USER%-{tutorial-namespace} greeter-twpgf-1
 ----
 
 [.console-output]
 [source,bash]
 ----
 Name:       greeter-twpgf-1
-Namespace:  knativetutorial
+Namespace:  %USER%-{tutorial-namespace}
 Age:        10m
 Image:      quay.io/rhdevelopers/knative-tutorial-greeter:quarkus (pinned to 767e2f)
 Service:    greeter
@@ -306,13 +306,13 @@ To delete a specific revision you can use the command:
 [.console-input]
 [source,bash,subs="+macros,attributes+"]
 ----
-kn revision delete --namespace {tutorial-namespace} greeter-twpgf-1
+kn revision delete --namespace %USER%-{tutorial-namespace} greeter-twpgf-1
 ----
 
 [.console-output]
 [source,bash]
 ----
-Revision 'greeter-twpgf-1' successfully deleted in namespace 'knativetutorial'.
+Revision 'greeter-twpgf-1' successfully deleted in namespace '%USER%-{tutorial-namespace}'.
 ----
 
 [#kn-routes]
@@ -344,13 +344,13 @@ You can also use `kn` to delete the service that were created, to delete the ser
 [.console-input]
 [source,bash,subs="+macros,attributes+"]
 ----
-kn service delete --namespace {tutorial-namespace} greeter
+kn service delete --namespace %USER%-{tutorial-namespace} greeter
 ----
 
 [source,bash]
 [.console-output]
 ----
-Service 'greeter' successfully deleted in namespace 'knativetutorial'.
+Service 'greeter' successfully deleted in namespace '%USER%-{tutorial-namespace}'.
 ----
 
 <<kn-list-services,Listing services>> you will notice that the `greeter` service no longer exists.

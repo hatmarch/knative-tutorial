@@ -22,6 +22,6 @@ include::eventing:partial$eventing-snippets.adoc[tag=eventing-nav-folder]
 [#eventing-watch-logs]
 == Watching Logs
 
-:kube-ns: knativetutorial
+:kube-ns: %USER%-{tutorial-namespace}
 :kube-svc: event-greeter
 include::eventing:partial$watching-logs.adoc[]

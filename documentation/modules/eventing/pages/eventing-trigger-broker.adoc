@@ -137,7 +137,7 @@ The command should show the output as:
 [.console-output]
 [source,bash]
 ----
-http://eventingaloha.knativetutorial.svc.cluster.local
+http://eventingaloha.%USER%-{tutorial-namespace}.svc.cluster.local
 ----
 
 Pull out the subscriberUri for `eventhingbonjour`:
@@ -153,7 +153,7 @@ The command should show the output as:
 [.console-output]
 [source,bash]
 ----
-http://eventingbonjour.knativetutorial.svc.cluster.local
+http://eventingbonjour.%USER%-{tutorial-namespace}.svc.cluster.local
 ----
 
 As well as broker's subscriberUri:
@@ -209,7 +209,7 @@ Wait for the `curler` pod to be running and then exec into the `curler` pod:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 -----
-kubectl -n {tutorial-namespace} apply -f curler.yaml
+kubectl -n %USER%-{tutorial-namespace} apply -f curler.yaml
 -----
 
 Exec into the `curler` pod:
@@ -218,7 +218,7 @@ Exec into the `curler` pod:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} exec -it curler -- /bin/bash
+kubectl -n %USER%-{tutorial-namespace} exec -it curler -- /bin/bash
 ----
 
 Using the `curler` pod's shell, curl the subcriberURI for eventingaloha:
@@ -344,12 +344,12 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn service delete eventingbonjour -n {tutorial-namespace}
-kn service delete eventingaloha -n {tutorial-namespace}
-kn trigger delete helloaloha -n {tutorial-namespace}
-kn trigger delete hellobonjour -n {tutorial-namespace}
-kubectl -n {tutorial-namespace} delete pod curler
-kn broker delete default -n {tutorial-namespace}
+kn service delete eventingbonjour -n %USER%-{tutorial-namespace}
+kn service delete eventingaloha -n %USER%-{tutorial-namespace}
+kn trigger delete helloaloha -n %USER%-{tutorial-namespace}
+kn trigger delete hellobonjour -n %USER%-{tutorial-namespace}
+kubectl -n %USER%-{tutorial-namespace} delete pod curler
+kn broker delete default -n %USER%-{tutorial-namespace}
 ----
 --
 {kubernetes-cli}::
@@ -358,12 +358,12 @@ kn broker delete default -n {tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} delete -f eventing-aloha-sink.yaml
-kubectl -n {tutorial-namespace} delete -f eventing-bonjour-sink.yaml
-kubectl -n {tutorial-namespace} delete -f trigger-helloaloha.yaml
-kubectl -n {tutorial-namespace} delete -f trigger-hellobonjour.yaml
-kubectl -n {tutorial-namespace} delete -f curler.yaml
-kubectl -n knativetutorial delete -f default-broker.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-aloha-sink.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-bonjour-sink.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f trigger-helloaloha.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f trigger-hellobonjour.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f curler.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f default-broker.yaml
 ----
 --
 ====

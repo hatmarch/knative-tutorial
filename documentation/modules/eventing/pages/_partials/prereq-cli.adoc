@@ -53,7 +53,7 @@ Client Version: 4.6.1
 Kubernetes Version: `{kubernetes-version}`
 ----
 
-* Make sure to be on `knativetutorial` OpenShift project
+* Make sure to be on `%USER%-{tutorial-namespace}` OpenShift project
 
 [#right-openshift-project]
 [.console-input]
@@ -68,7 +68,7 @@ If you are not on `{tutorial-namespace}` project, then run following command to 
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc project {tutorial-namespace}
+oc project %USER%-{tutorial-namespace}
 ----
 --
 ====

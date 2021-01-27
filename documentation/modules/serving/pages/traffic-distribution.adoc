@@ -181,7 +181,7 @@ Let us list all revisions with tags:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn revision ls --namespace {tutorial-namespace}
+kn revision ls --namespace %USER%-{tutorial-namespace}
 ----
 
 Based on the revision tags that we created earlier, the output should be like:
@@ -199,7 +199,7 @@ Let us list the available sub-routes:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} get ksvc greeter -oyaml \
+kubectl -n %USER%-{tutorial-namespace} get ksvc greeter -oyaml \
  | yq r - 'status.traffic[*].url'
 ----
 
@@ -207,9 +207,9 @@ The above command should return you three sub-routes for the main `greeter` rout
 
 [source,bash,subs="+macros,attributes"]
 ----
-- http://latest-greeter.knativetutorial.example.com #<1>
-- http://v1-greeter.knativetutorial.example.com #<2>
-- http://v2-greeter.knativetutorial.example.com #<3>
+- http://latest-greeter.%USER%-{tutorial-namespace}.example.com #<1>
+- http://v1-greeter.%USER%-{tutorial-namespace}.example.com #<2>
+- http://v2-greeter.%USER%-{tutorial-namespace}.example.com #<3>
 ----
 
 <1> the sub route for the traffic tag `latest`
@@ -362,6 +362,6 @@ As a challenge, adjust the traffic distribution and observe the responses while 
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn -n {tutorial-namespace}  service delete greeter
+kn -n %USER%-{tutorial-namespace}  service delete greeter
 ----
 

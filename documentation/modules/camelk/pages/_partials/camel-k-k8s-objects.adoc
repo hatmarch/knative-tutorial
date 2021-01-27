@@ -7,7 +7,7 @@ kubectl::
 [#camelk-get-k8s-int]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace}  get integrations.camel.apache.org
+kubectl -n %USER%-{tutorial-namespace}  get integrations.camel.apache.org
 ----
 copyToClipboard::camelk-get-k8s-int[]
 --
@@ -17,7 +17,7 @@ oc::
 [#camelk-oc-get-k8s-int]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc -n {tutorial-namespace}  get get integrations.camel.apache.org
+oc -n %USER%-{tutorial-namespace}  get get integrations.camel.apache.org
 ----
 copyToClipboard::camelk-oc-get-k8s-int[]
 --
@@ -33,7 +33,7 @@ kubectl::
 [#camelk-get-k8s-svc]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace}  get svc
+kubectl -n %USER%-{tutorial-namespace}  get svc
 ----
 copyToClipboard::camelk-get-k8s-svc[]
 --
@@ -43,7 +43,7 @@ oc::
 [#camelk-oc-get-k8s-svc]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc -n {tutorial-namespace}  get svc
+oc -n %USER%-{tutorial-namespace}  get svc
 ----
 copyToClipboard::camelk-oc-get-k8s-svc[]
 --
@@ -59,7 +59,7 @@ kubectl::
 [#camelk-get-k8s-dc]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace}  get deployments
+kubectl -n %USER%-{tutorial-namespace}  get deployments
 ----
 copyToClipboard::camelk-get-k8s-dc[]
 --
@@ -69,7 +69,7 @@ oc::
 [#camelk-oc-get-k8s-dc]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc -n {tutorial-namespace}  get get deployments
+oc -n %USER%-{tutorial-namespace}  get get deployments
 ----
 copyToClipboard::camelk-oc-get-k8s-dc[]
 --

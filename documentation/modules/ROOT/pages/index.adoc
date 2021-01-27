@@ -20,8 +20,8 @@ image::knative-cookbook.png[Knative Cookbook,300,300]
 a|
 [.tile]
 .xref:setup:setup.adoc[Setup]
-* xref:setup:setup.adoc[Deploy]
-* xref:serving:knative-client.adoc[Knative Client]
+// * xref:setup:setup.adoc[Deploy]
+// * xref:serving:knative-client.adoc[Knative Client]
 a|
 [.tile]
 .xref:serving:index.adoc[Knative Serving]

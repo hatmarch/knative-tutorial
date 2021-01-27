@@ -44,7 +44,7 @@ oc version
 ----
 copyToClipboard::oc-version[]
 
-* Make sure to be on `knativetutorial` OpenShift project
+* Make sure to be on `%USER%-{tutorial-namespace}` OpenShift project
 
 [#right-openshift-project]
 [source,bash,subs="+macros,+attributes"]
@@ -58,7 +58,7 @@ If you are not on `{tutorial-namespace}` project, then run following command to 
 [#change-to-openshift-project]
 [source,bash,subs="+macros,+attributes"]
 ----
-oc project {tutorial-namespace}
+oc project %USER%-{tutorial-namespace}
 ----
 copyToClipboard::change-to-openshift-project[]
 --

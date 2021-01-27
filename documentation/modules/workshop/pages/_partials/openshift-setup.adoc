@@ -29,6 +29,6 @@ You can also access the OpenShift Console via url {openshift-console-url}
 [#knative-oc-project]
 [source,bash,subs="attributes+,+macros"]
 ----
-oc project {tutorial-namespace}
+oc project %USER%-{tutorial-namespace}
 ----
 copyToClipboard::knative-oc-project[]

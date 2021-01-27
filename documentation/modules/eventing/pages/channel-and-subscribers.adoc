@@ -45,7 +45,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn channel list -n {tutorial-namespace}
+kn channel list -n %USER%-{tutorial-namespace}
 ----
 --
 {kubernetes-cli}::
@@ -54,7 +54,7 @@ kn channel list -n {tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} get \
+kubectl -n %USER%-{tutorial-namespace} get \
   channels.messaging.knative.dev 
 ----
 --
@@ -112,7 +112,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn source ping -n {tutorial-namespace} list
+kn source ping -n %USER%-{tutorial-namespace} list
 ----
 
 Running  the above command should return the following result:
@@ -131,7 +131,7 @@ kubectl::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} get pingsource.sources.knative.dev 
+kubectl -n %USER%-{tutorial-namespace} get pingsource.sources.knative.dev 
 ----
 
 Running  the above command should return the following result:
@@ -270,7 +270,7 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn subscription -n {tutorial-namespace} list
+kn subscription -n %USER%-{tutorial-namespace} list
 ----
 
 Running  the above command should return the following result:
@@ -289,7 +289,7 @@ eventinghellob-sub   Channel:eventinghello-ch   ksvc:eventinghellob             
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} \
+kubectl -n %USER%-{tutorial-namespace} \
    get subscription.messaging.knative.dev 
 ----
 
@@ -307,15 +307,15 @@ eventinghellob-sub   6s    True
 ====
 
 
-If you wait approximately 2 minutes for the PingSource then you will see both `eventinghelloa` and `eventinghellob` begin to run in the {tutorial-namespace}.
+If you wait approximately 2 minutes for the PingSource then you will see both `eventinghelloa` and `eventinghellob` begin to run in the %USER%-{tutorial-namespace}.
 
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-watch 'kubectl get pods -n {tutorial-namespace}'
+watch 'kubectl get pods -n %USER%-{tutorial-namespace}'
 ----
 
-.Watch pods in the {tutorial-namespace}
+.Watch pods in the %USER%-{tutorial-namespace}
 [.console-output]
 [source,bash]
 ----
@@ -349,12 +349,12 @@ kn::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn service delete -n {tutorial-namespace} eventinghelloa
-kn subscription delete eventinghelloa-sub --namespace {tutorial-namespace}
-kn service delete -n {tutorial-namespace}  eventinghellob
-kn subscription delete eventinghellob-sub --namespace {tutorial-namespace}
-kn source ping delete -n {tutorial-namespace} event-greeter-ping-source
-kn channel delete -n {tutorial-namespace} eventinghello-ch
+kn service delete -n %USER%-{tutorial-namespace} eventinghelloa
+kn subscription delete eventinghelloa-sub --namespace %USER%-{tutorial-namespace}
+kn service delete -n %USER%-{tutorial-namespace}  eventinghellob
+kn subscription delete eventinghellob-sub --namespace %USER%-{tutorial-namespace}
+kn source ping delete -n %USER%-{tutorial-namespace} event-greeter-ping-source
+kn channel delete -n %USER%-{tutorial-namespace} eventinghello-ch
 ----
 --
 {kubernetes-cli}::
@@ -363,12 +363,12 @@ kn channel delete -n {tutorial-namespace} eventinghello-ch
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {tutorial-namespace} delete -f eventing-helloa-sink.yaml
-kubectl -n {tutorial-namespace} delete -f eventing-helloa-sub.yaml
-kubectl -n {tutorial-namespace} delete -f eventing-hellob-sink.yaml
-kubectl -n {tutorial-namespace} delete -f eventing-hellob-sub.yaml
-kubectl -n {tutorial-namespace} delete -f event-source.yaml
-kubectl -n knativetutorial delete -f channel.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-helloa-sink.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-helloa-sub.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-hellob-sink.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f eventing-hellob-sub.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f event-source.yaml
+kubectl -n %USER%-{tutorial-namespace} delete -f channel.yaml
 ----
 --
 ====
