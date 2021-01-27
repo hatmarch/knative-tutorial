@@ -8,17 +8,13 @@ site:
 
 content:
   sources:
-    - url: .
+    # When included as a submodule
+    - url: ..
       branches: HEAD
-      start_path: documentation
-    # - url: ../knative-tutorial-module-serving
+      start_path: knative-tutorial/documentation
+    # - url: .
     #   branches: HEAD
-    # - url: ../knative-tutorial-module-eventing
-    #   branches: HEAD
-    # - url: ../knative-tutorial-module-camelk
-    #   branches: HEAD
-    # - url: ../knative-tutorial-module-advanced
-    #   branches: HEAD
+    #   start_path: documentation
 asciidoc:
   attributes:
     tutorial-namespace: knativetutorial

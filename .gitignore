@@ -47,3 +47,4 @@ staging-gh-pages
 yarn.lock
 
 .DS_Store
+publish/
