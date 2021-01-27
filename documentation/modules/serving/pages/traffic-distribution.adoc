@@ -181,7 +181,7 @@ Let us list all revisions with tags:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kn revision ls --namespace %USER%-{tutorial-namespace}
+kn revision list --namespace %USER%-{tutorial-namespace}
 ----
 
 Based on the revision tags that we created earlier, the output should be like:
