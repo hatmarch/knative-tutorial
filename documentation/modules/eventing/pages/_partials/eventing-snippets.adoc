@@ -20,7 +20,7 @@ The ping source also creates a service pod,
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get pods 
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get pods 
 ----
 
 The above command will return an output like,

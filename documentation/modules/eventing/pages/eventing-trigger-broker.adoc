@@ -130,7 +130,7 @@ Pull out the subscriberUri for `eventhingaloha`:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get trigger helloaloha -o jsonpath='{.status.subscriberUri}'
+{kubernetes-cli} get trigger helloaloha -o jsonpath='{.status.subscriberUri}'
 ----
 
 The command should show the output as: 
@@ -146,7 +146,7 @@ Pull out the subscriberUri for `eventhingbonjour`:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get trigger hellobonjour -o jsonpath='{.status.subscriberUri}'
+{kubernetes-cli} get trigger hellobonjour -o jsonpath='{.status.subscriberUri}'
 ----
 
 The command should show the output as: 
@@ -162,7 +162,7 @@ As well as broker's subscriberUri:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get broker default -o jsonpath='{.status.address.url}'
+{kubernetes-cli} get broker default -o jsonpath='{.status.address.url}'
 ----
 
 The command should show the output as: 
@@ -209,7 +209,7 @@ Wait for the `curler` pod to be running and then exec into the `curler` pod:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 -----
-kubectl -n %USER%-{tutorial-namespace} apply -f curler.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} apply -f curler.yaml
 -----
 
 Exec into the `curler` pod:
@@ -218,7 +218,7 @@ Exec into the `curler` pod:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} exec -it curler -- /bin/bash
+{kubernetes-cli} -n %USER%-{tutorial-namespace} exec -it curler -- /bin/bash
 ----
 
 Using the `curler` pod's shell, curl the subcriberURI for eventingaloha:
@@ -242,7 +242,7 @@ You will then see `eventingaloha` will scale-up to respond to that event:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 -----
-watch kubectl get pods
+watch {kubernetes-cli} get pods
 -----
 
 The command above should show the following output:
@@ -276,7 +276,7 @@ And you will see the `eventingbonjour` pod scale up:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 -----
-watch kubectl get pods
+watch {kubernetes-cli} get pods
 -----
 
 The command above should show the following output:
@@ -317,7 +317,7 @@ And by watching the *{tutorial-namespace}* namespace, you will see both `eventin
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 -----
-watch kubectl get pods
+watch {kubernetes-cli} get pods
 -----
 
 The command above should show the following output:
@@ -348,7 +348,7 @@ kn service delete eventingbonjour -n %USER%-{tutorial-namespace}
 kn service delete eventingaloha -n %USER%-{tutorial-namespace}
 kn trigger delete helloaloha -n %USER%-{tutorial-namespace}
 kn trigger delete hellobonjour -n %USER%-{tutorial-namespace}
-kubectl -n %USER%-{tutorial-namespace} delete pod curler
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete pod curler
 kn broker delete default -n %USER%-{tutorial-namespace}
 ----
 --
@@ -358,12 +358,12 @@ kn broker delete default -n %USER%-{tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-aloha-sink.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-bonjour-sink.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f trigger-helloaloha.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f trigger-hellobonjour.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f curler.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f default-broker.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-aloha-sink.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-bonjour-sink.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f trigger-helloaloha.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f trigger-hellobonjour.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f curler.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f default-broker.yaml
 ----
 --
 ====

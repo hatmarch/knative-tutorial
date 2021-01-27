@@ -11,7 +11,7 @@ kubectl::
 --
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl logs -n {kube-ns} -f <pod-name> -c user-container
+{kubernetes-cli} logs -n {kube-ns} -f <pod-name> -c user-container
 ----
 --
 oc::

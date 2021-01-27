@@ -23,7 +23,7 @@ Knative Eventing `KafkaSource` need to be used to have the Kafka messages to flo
 [#kn-eventing-adv-deploy-kafkasource]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl apply \
+{kubernetes-cli} apply \
 -f https://github.com/knative/eventing-contrib/\
 releases/download/{kafka-source-version}/kafka-source.yaml
 ----
@@ -34,7 +34,7 @@ The previous step deploys Knative KafkaSource in the `knative-sources` namespace
 [#watch-kafkasource-controller-pod]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-watch "kubectl get pods -n knative-sources"
+watch "{kubernetes-cli} get pods -n knative-sources"
 ----
 
 The command above should show the following output:
@@ -55,12 +55,12 @@ You should also deploy the Knative Kafka Channel that can be used to connect the
 curl -L "https://github.com/knative/eventing-contrib/\
 releases/download/{kafka-source-version}/kafka-channel.yaml" \
  | sed 's/REPLACE_WITH_CLUSTER_URL/my-cluster-kafka-bootstrap.kafka:9092/' \
- | kubectl apply --filename -
+ | {kubernetes-cli} apply --filename -
 ----
 
 [NOTE]
 =====
-* "my-cluster-kafka-bootstrap.kafka:9092" comes from `kubectl get services -n kafka`
+* "my-cluster-kafka-bootstrap.kafka:9092" comes from `{kubernetes-cli} get services -n kafka`
 * On *OpenShift*, Knative Eventing Kafka operator that was done in earlier, will install Knative KafkaChannel as well.
 =====
 
@@ -70,7 +70,7 @@ Look for 3 new pods in namespace `knative-eventing` with the prefix "kafka":
 [#kn-eventing-list-kafka-source-pods]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-watch "kubectl get pods -n knative-eventing"
+watch "{kubernetes-cli} get pods -n knative-eventing"
 ----
 
 The command will shown an output like:
@@ -110,7 +110,7 @@ kn source list-types
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl api-resources --api-group='sources.knative.dev'
+{kubernetes-cli} api-resources --api-group='sources.knative.dev'
 ----
 --
 ====
@@ -134,7 +134,7 @@ include:
 [#kn-eventing-list-api-res-messaging]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl api-resources --api-group='messaging.knative.dev'
+{kubernetes-cli} api-resources --api-group='messaging.knative.dev'
 ----
 
 The command should show the following APIs in `messaging.knative.dev` :
@@ -204,7 +204,7 @@ include::example$kafka-topic-my-topic.yaml[]
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n kafka \
+{kubernetes-cli} apply -n kafka \
   -f kafka-topic-my-topic.yaml
 ----
 
@@ -213,7 +213,7 @@ Check the created topics by:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl get -n kafka kafkatopics
+{kubernetes-cli} get -n kafka kafkatopics
 ----
 
 The command should show an output like:
@@ -248,7 +248,7 @@ spec:
       name: eventinghello
 ----
 
-<.> "my-cluster-kafka-bootstrap:9092" can be found via `kubectl get -n kafka services` or `oc get  -n kafka services`
+<.> "my-cluster-kafka-bootstrap:9092" can be found via `{kubernetes-cli} get -n kafka services` or `oc get  -n kafka services`
 <.> `my-topic` was created earlier xref:deploy-apache-kafka.adoc#create-kafka-topic[section] when deploying Apache Kafka
 <.> This is another example of a direct xref:knative-tutorial-eventing:ROOT:eventing-src-to-sink.adoc.adoc#eventing-sink-service[Source to Sink]
 
@@ -258,14 +258,14 @@ The deployment of `KafkaSource` will result in a new pod prefixed with "mykafka-
 [#kn-kafka-source-deploy]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl -n %USER%-{tutorial-namespace} apply -f mykafka-source.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} apply -f mykafka-source.yaml
 ----
 
 [.console-input]
 [#kn-kafka-source-status-watch]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-watch kubectl get pods
+watch {kubernetes-cli} get pods
 ----
 
 When the KafkaSource is ready it will show the following output(listing only relvant pods):
@@ -367,7 +367,7 @@ Open a new terminal and watch the pods of `{tutorial-namespace}` namespace:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get pods -n %USER%-{tutorial-namespace} 
+watch {kubernetes-cli} get pods -n %USER%-{tutorial-namespace} 
 ----
 
 We will use a utility pod called `kafka-spammer` to send a bunch of messages to KafkaTopic `my-topic`, which in turn will trigger the Knative sink service `eventinghello` to scale up to handle the KakaTopic message events.
@@ -377,7 +377,7 @@ Deploy `kafka-spammer` application using the command:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n kafka run kafka-spammer \
+{kubernetes-cli} -n kafka run kafka-spammer \
 --image=quay.io/rhdevelopers/kafkaspammer:1.0.2
 ----
 
@@ -386,7 +386,7 @@ Wait for the `kafka-spammer` pod to be up and running, you can watch `kafka` nam
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl -n kafka get pods
+watch {kubernetes-cli} -n kafka get pods
 ----
 
 Once the `kafka-spammer` is up and running, open a new terminal and exec into the pod by running:
@@ -394,7 +394,7 @@ Once the `kafka-spammer` is up and running, open a new terminal and exec into th
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n kafka exec -it kafka-spammer -- /bin/sh
+{kubernetes-cli} -n kafka exec -it kafka-spammer -- /bin/sh
 ----
 
 Once you are in the shell of the `kafka-spammer` pod run the following command:
@@ -428,8 +428,8 @@ kafkasource-mykafka-source-a29a50ca-4d76-4e65-8b96-1507372bfphb   1/1     Runnin
 [#kn-eventing-kafka-src-cleanup]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl delete -n kafka pod kafka-spammer
-kubectl delete -n %USER%-{tutorial-namespace}  -f mykafka-source.yaml
-kubectl delete -n %USER%-{tutorial-namespace}  -f eventing-hello-sink.yaml
-kubectl delete -n kafka -f kafka-topic-my-topic.yaml
+{kubernetes-cli} delete -n kafka pod kafka-spammer
+{kubernetes-cli} delete -n %USER%-{tutorial-namespace}  -f mykafka-source.yaml
+{kubernetes-cli} delete -n %USER%-{tutorial-namespace}  -f eventing-hello-sink.yaml
+{kubernetes-cli} delete -n kafka -f kafka-topic-my-topic.yaml
 ----

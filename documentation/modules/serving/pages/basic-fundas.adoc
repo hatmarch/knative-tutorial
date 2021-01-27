@@ -73,7 +73,7 @@ After successful deployment of the service we should see a Kubernetes Deployment
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get deployments -n %USER%-{tutorial-namespace}
+{kubernetes-cli} get deployments -n %USER%-{tutorial-namespace}
 ----
 
 [NOTE]
@@ -262,7 +262,7 @@ kn service -n %USER%-{tutorial-namespace} delete greeter
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} delete services.serving.knative.dev greeter
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete services.serving.knative.dev greeter
 ----
 --
 ====

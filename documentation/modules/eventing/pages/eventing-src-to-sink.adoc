@@ -18,7 +18,7 @@ Knative Eventing Sources installs the following four sources out-of-the-box:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl api-resources --api-group='sources.knative.dev'
+{kubernetes-cli} api-resources --api-group='sources.knative.dev'
 ----
 
 [.console-output]
@@ -134,7 +134,7 @@ kn source ping list -n %USER%-{tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get \
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get \
   pingsources.sources.knative.dev \
   eventinghello-ping-source
 ----
@@ -201,8 +201,8 @@ kn service delete -n %USER%-{tutorial-namespace} eventinghello
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} delete -f eventinghello-source.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-hello-sink.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventinghello-source.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-hello-sink.yaml
 ----
 --
 ====

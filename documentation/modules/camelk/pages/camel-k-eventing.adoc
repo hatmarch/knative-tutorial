@@ -28,7 +28,7 @@ To deploy CamelSource run the following command:
 [#deploy-camelsource]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply \
+{kubernetes-cli} apply \
   -f "https://github.com/knative/eventing-contrib/releases/download/{camel-source-version}/camel.yaml"
 ----
 
@@ -37,7 +37,7 @@ Once you deploy, thee following new pod showing up the `knative-sources` namespa
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch 'kubectl -n knative-sources get pods'
+watch '{kubernetes-cli} -n knative-sources get pods'
 ----
 
 [.console-output]
@@ -53,7 +53,7 @@ Plus, CamelSource is now part of the API along with other Knative Eventing Sourc
 [#camel-k-camelsource-api]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl api-resources --api-group=sources.knative.dev
+{kubernetes-cli} api-resources --api-group=sources.knative.dev
 ----
 
 The command above should list: 
@@ -78,7 +78,7 @@ In order for you to view the events drained from the CamelSource `timed-greeter`
 [#deploy-ce-event-display]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply \
+{kubernetes-cli} apply \
   -f https://github.com/knative/eventing-contrib/releases/download/{camel-source-version}/event-display.yaml
 ----
 
@@ -87,7 +87,7 @@ A successful event display should show the following pod in the `{tutorial-names
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get -n %USER%-{tutorial-namespace} pods
+watch {kubernetes-cli} get -n %USER%-{tutorial-namespace} pods
 ----
 
 List the Knative Service `event-display`:
@@ -117,7 +117,7 @@ event-display   http://event-display.%USER%-{tutorial-namespace}.example.com   e
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get ksvc
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get ksvc
 ----
 
 [.console-output]
@@ -185,7 +185,7 @@ To deploy the CamelSource run the following command:
 [#deploy-greeter-camelsource]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} -f get-started/timed-greeter-source.yaml
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} -f get-started/timed-greeter-source.yaml
 ----
 
 A successful deployment will show the CamelSource `timed-greeter` in ready state along with its pods in the %USER%-{tutorial-namespace} namespace. 
@@ -194,7 +194,7 @@ A successful deployment will show the CamelSource `timed-greeter` in ready state
 [#camel-k-watch-camelsources]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl -n %USER%-{tutorial-namespace} get camelsources
+watch {kubernetes-cli} -n %USER%-{tutorial-namespace} get camelsources
 ----
 
 When the camel source is successfully running you will see it in "READY" state `True`:
@@ -212,7 +212,7 @@ Once the `timed-greeter` is ready, you will notice Knative sink `event-display` 
 [.console-output]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-# watch kubectl -n %USER%-{tutorial-namespace} get pods
+# watch {kubernetes-cli} -n %USER%-{tutorial-namespace} get pods
 NAME                                              READY   STATUS    AGE
 camel-k-operator-84d7896b68-sgmpk                 1/1     Running   2m36s
 event-display-dmq4s-deployment-775789b565-fnf2t   2/2     Running   17s
@@ -253,7 +253,7 @@ event-... user-container   source: camel-source:%USER%-{tutorial-namespace}/time
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 $TUTORIAL_HOME/bin/clean-completed.sh
-kubectl -n %USER%-{tutorial-namespace} delete camelsource timed-greeter
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete camelsource timed-greeter
 ----
 
 After few seconds you will see the `event-display` Knative Service scaling down to zero since it no longer receives events via the event source.

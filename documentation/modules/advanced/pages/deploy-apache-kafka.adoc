@@ -17,7 +17,7 @@ Run the following command to create the `kafka` namespace
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl create namespace kafka
+{kubernetes-cli} create namespace kafka
 ----
 
 Deploy Apache Kafka into `kafka` namespace:
@@ -30,7 +30,7 @@ curl -L \
 https://github.com/strimzi/strimzi-kafka-operator\
 /releases/download/{strimzi-version}/strimzi-cluster-operator-{strimzi-version}.yaml \
   | sed 's/namespace:.*/namespace: kafka/' \
-  | kubectl apply -n kafka -f -
+  | {kubernetes-cli} apply -n kafka -f -
 ----
 
 Wait for the strimzi-cluster-operator to be running:
@@ -39,7 +39,7 @@ Wait for the strimzi-cluster-operator to be running:
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-watch "kubectl get pods -n kafka"
+watch "{kubernetes-cli} get pods -n kafka"
 ----
 
 The command should show the following output:
@@ -57,7 +57,7 @@ The strimzi operator would have installed several Apache Kafka related CRDs whic
 [#eventing-watch-kafka-res]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl api-resources --api-group='kafka.strimzi.io'
+{kubernetes-cli} api-resources --api-group='kafka.strimzi.io'
 ----
 
 The command should show the following output:
@@ -84,7 +84,7 @@ Now with the Apache Kafka operator running, you can deploy and verify a single n
 [#create-kafka-cluster]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl -n kafka apply -f kafka-broker-my-cluster.yaml
+{kubernetes-cli} -n kafka apply -f kafka-broker-my-cluster.yaml
 ----
 
 Watch the Kafka cluster deployment:
@@ -93,7 +93,7 @@ Watch the Kafka cluster deployment:
 [#watch-kafka-cluster]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-watch "kubectl get pods -n kafka"
+watch "{kubernetes-cli} get pods -n kafka"
 ----
 
 Watch the `kafka` namespace for the cluster deployment:
@@ -142,7 +142,7 @@ You can choose to skip the manual pre-creation of a KafkaTopic but the automatic
 [#oc-create-kafka-topic]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl -n kafka create -f kafka-topic-my-topic.yaml
+{kubernetes-cli} -n kafka create -f kafka-topic-my-topic.yaml
 ----
 
 Verify the created topic:
@@ -151,7 +151,7 @@ Verify the created topic:
 [#oc-verify-create-kafka-topic]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl -n kafka  get kafkatopics
+{kubernetes-cli} -n kafka  get kafkatopics
 ----
 
 The verify command should show the following output:

@@ -165,7 +165,7 @@ kamel run --wait get-started/echoer.yaml
 
 [NOTE]
 ====
-You can use `stern camel-k` to monitor the progress of the builder pod as well as `watch kubectl kamel get` and monitor the *PHASE* column.  In addition, `watch kubectl get ksvc` looking at the *READY* column to become True.
+You can use `stern camel-k` to monitor the progress of the builder pod as well as `watch {kubernetes-cli} kamel get` and monitor the *PHASE* column.  In addition, `watch {kubernetes-cli} get ksvc` looking at the *READY* column to become True.
 ====
 
 Since its the production mode and it takes some time for the integration to come up, you need to watch the integration\'s logs using the command `kamel log <integration name>` i.e. `kamel log echoer` and you can get the name of the integration using the command `kamel get`.
@@ -178,7 +178,7 @@ Camel-K defines an `integration` via Custom Resource Definition (CRD) and you ca
 [#camel-k-crds]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl api-resources --api-group=camel.apache.org
+{kubernetes-cli} api-resources --api-group=camel.apache.org
 ----
 
 The command above shows the following output:
@@ -250,7 +250,7 @@ Conditions:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get ksvc echoer
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get ksvc echoer
 ----
 
 [.console-output]

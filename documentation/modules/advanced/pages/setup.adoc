@@ -38,7 +38,7 @@ As with other installations in this tutorial, this process will take a few minut
 [#camel-k-watch-pods]
 [source,bash,subs="+quotes,+attributes,+macros"]
 -----
-watch kubectl -n %USER%-{tutorial-namespace} get pods
+watch {kubernetes-cli} -n %USER%-{tutorial-namespace} get pods
 -----
 copyToClipboard::camel-k-watch-pods[]
 
@@ -95,7 +95,7 @@ kubectl::
 [#camel-k-maven-config]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl edit -n %USER%-{tutorial-namespace} cm camel-k-maven-settings
+{kubernetes-cli} edit -n %USER%-{tutorial-namespace} cm camel-k-maven-settings
 ----
 copyToClipboard::camel-k-maven-config[]
 --
@@ -114,7 +114,7 @@ ifndef::workshop[]
 endif::[]
 ====
 
-The command above by default opens the ConfigMap YAML in vi. We can use the environment variable `KUBE_EDITOR`, to allow us to edit the YAML with the editor of our choice. For example setting `export KUBE_EDITOR=code -w`, will make the `kubectl edit` commands to open the Kubernetes resource YAML in https://code.visualstudio.com/[vscode].
+The command above by default opens the ConfigMap YAML in vi. We can use the environment variable `KUBE_EDITOR`, to allow us to edit the YAML with the editor of our choice. For example setting `export KUBE_EDITOR=code -w`, will make the `{kubernetes-cli} edit` commands to open the Kubernetes resource YAML in https://code.visualstudio.com/[vscode].
 
 The following listing shows the Camel-K maven settings configured to use a Sonatype Nexus repository as its mirror:
 

@@ -8,7 +8,7 @@ The logs could be watched using the command:
 
 [source,yaml,subs="attributes+,+macros"]
 ----
-kubectl logs -n {kube-ns} -f <pod-name> -c user-container
+{kubernetes-cli} logs -n {kube-ns} -f <pod-name> -c user-container
 ----
 
 [TIP]

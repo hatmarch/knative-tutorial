@@ -48,7 +48,7 @@ copyToClipboard::camelk-set-k8s-docker-env[]
 [#camelk-set-k8s-version]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl version
+{kubernetes-cli} version
 ----
 copyToClipboard::camelk-set-k8s-version[]
 

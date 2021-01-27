@@ -13,7 +13,7 @@ kubectl::
 [#camelk-{doc-sec}-svc-by-k8s]
 [source,bash,subs="+macros,+attributes"]
 ----
-SVC_URL=`kubectl -n %USER%-{tutorial-namespace} get ksvc {svc-name} -ojsonpath='{.status.domain}'`
+SVC_URL=`{kubernetes-cli} -n %USER%-{tutorial-namespace} get ksvc {svc-name} -ojsonpath='{.status.domain}'`
 ----
 copyToClipboard::camelk-{doc-sec}-svc-by-k8s[]
 --

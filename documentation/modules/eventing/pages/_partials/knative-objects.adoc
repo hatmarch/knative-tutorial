@@ -23,7 +23,7 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/%USER%-{tutor
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get broker.eventing.knative.dev -n %USER%-{tutorial-namespace}
+{kubernetes-cli} get broker.eventing.knative.dev -n %USER%-{tutorial-namespace}
 ----
 [.console-output]
 [source,bash]
@@ -60,7 +60,7 @@ eventinghello-ch   InMemoryChannel   http://eventinghello-ch-kn-channel.%USER%-{
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get --namespace %USER%-{tutorial-namespace} channels.messaging.knative.dev eventinghello-ch
+{kubernetes-cli} get --namespace %USER%-{tutorial-namespace} channels.messaging.knative.dev eventinghello-ch
 ----
 
 [.console-output]
@@ -99,7 +99,7 @@ event-greeter-ping-source   */2 * * * *   Channel:eventinghello-ch   10m   4 OK 
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl get --namespace %USER%-{tutorial-namespace} pingsource.sources.knative.dev  event-greeter-ping-source
+{kubernetes-cli} get --namespace %USER%-{tutorial-namespace} pingsource.sources.knative.dev  event-greeter-ping-source
 ----
 
 [.console-output]
@@ -138,7 +138,7 @@ eventinghellob-sub   Channel:eventinghello-ch   ksvc:eventinghellob             
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace %USER%-{tutorial-namespace} get subscriptions.messaging.knative.dev 
+{kubernetes-cli} --namespace %USER%-{tutorial-namespace} get subscriptions.messaging.knative.dev 
 ----
 
 [.console-output]
@@ -171,7 +171,7 @@ kn service --namespace %USER%-{tutorial-namespace} list
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace %USER%-{tutorial-namespace} get service.serving.knative.dev eventinghello  
+{kubernetes-cli} --namespace %USER%-{tutorial-namespace} get service.serving.knative.dev eventinghello  
 ----
 --
 ====
@@ -204,7 +204,7 @@ hellobonjour   default   ksvc:eventingbonjour   11m   5 OK / 5     True
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace %USER%-{tutorial-namespace}  get triggers.eventing.knative.dev
+{kubernetes-cli} --namespace %USER%-{tutorial-namespace}  get triggers.eventing.knative.dev
 ----
 
 [.console-output]
@@ -238,7 +238,7 @@ kn source ping --namespace %USER%-{tutorial-namespace} list
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl --namespace %USER%-{tutorial-namespace} get containersources.sources.knative.dev heartbeat-event-source
+{kubernetes-cli} --namespace %USER%-{tutorial-namespace} get containersources.sources.knative.dev heartbeat-event-source
 ----
 --
 ====

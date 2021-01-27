@@ -17,7 +17,7 @@ copyToClipboard::run-install-istio[]
 [#setup-watch-istio-pods]
 [source,bash,subs="+macros,+attributes"]
 ----
-watch kubectl -n istio-system get pods
+watch {kubernetes-cli} -n istio-system get pods
 ----
 copyToClipboard::setup-watch-istio-pods[]
 
@@ -37,7 +37,7 @@ You can verify that the needed CRDs are available by querying `api-resources` fo
 .networking.istio.io
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-$ **kubectl api-resources --api-group='networking.istio.io'**
+$ **{kubernetes-cli} api-resources --api-group='networking.istio.io'**
 NAME               SHORTNAMES   APIGROUP              NAMESPACED   KIND
 destinationrules                networking.istio.io   true         DestinationRule
 envoyfilters                    networking.istio.io   true         EnvoyFilter
@@ -50,7 +50,7 @@ virtualservices                 networking.istio.io   true         VirtualServic
 .config.istio.io
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-$ **kubectl api-resources --api-group='config.istio.io'**
+$ **{kubernetes-cli} api-resources --api-group='config.istio.io'**
 NAME                  SHORTNAMES   APIGROUP          NAMESPACED   KIND
 adapters                           config.istio.io   true         adapter
 attributemanifests                 config.istio.io   true         attributemanifest
@@ -67,7 +67,7 @@ templates                          config.istio.io   true         template
 .authentication.istio.io
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-$ **kubectl api-resources --api-group='authentication.istio.io'**
+$ **{kubernetes-cli} api-resources --api-group='authentication.istio.io'**
 NAME           SHORTNAMES   APIGROUP                  NAMESPACED   KIND
 meshpolicies                authentication.istio.io   false        MeshPolicy
 policies                    authentication.istio.io   true         Policy
@@ -76,7 +76,7 @@ policies                    authentication.istio.io   true         Policy
 .rbac.istio.io
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-$ **kubectl api-resources --api-group='rbac.istio.io'**
+$ **{kubernetes-cli} api-resources --api-group='rbac.istio.io'**
 NAME                    SHORTNAMES   APIGROUP        NAMESPACED   KIND
 authorizationpolicies                rbac.istio.io   true         AuthorizationPolicy
 clusterrbacconfigs                   rbac.istio.io   false        ClusterRbacConfig

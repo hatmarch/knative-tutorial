@@ -19,7 +19,7 @@ eval $(minikube docker-env)
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl version --short
+{kubernetes-cli} version --short
 ----
 
 The output should be as shown 

@@ -2,7 +2,7 @@
 // [.console-input]
 // [source,bash,subs="+macros,+attributes"]
 // ----
-// export IP_ADDRESS="$(minikube -p %USER%-{tutorial-namespace} ip):$(kubectl get svc kourier --namespace kourier-system --output 'jsonpath={.spec.ports[?(@.port==80)].nodePort}')"
+// export IP_ADDRESS="$(minikube -p %USER%-{tutorial-namespace} ip):$({kubernetes-cli} get svc kourier --namespace kourier-system --output 'jsonpath={.spec.ports[?(@.port==80)].nodePort}')"
 // ----
 #end::env[]
 

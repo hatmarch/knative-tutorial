@@ -16,7 +16,7 @@ kubectl::
 [#camelk-wait-using-kubectl]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n {kube-ns} get pods -w 
+{kubernetes-cli} -n {kube-ns} get pods -w 
 ----
 copyToClipboard::camelk-wait-using-kubectl[]
 --
@@ -40,7 +40,7 @@ Wait for the pods to be running:
 
 [source,bash,subs="+macros,+attributes"]
 ----
-timeout 300 "kubectl get pods -n {kube-ns} 2>&1 | grep -v -E '(Running|Completed|STATUS)'"
+timeout 300 "{kubernetes-cli} get pods -n {kube-ns} 2>&1 | grep -v -E '(Running|Completed|STATUS)'"
 ----
 
 **(OR)**

@@ -85,7 +85,7 @@ As the Fruityvice services self-signed certificates which Quarkus does not allow
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
 ----
 
 Wait for the frutiyvice proxy to be running:
@@ -93,7 +93,7 @@ Wait for the frutiyvice proxy to be running:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl rollout status deploy fruityvice-proxy
+{kubernetes-cli} rollout status deploy fruityvice-proxy
 ----
 
 .Fruits producer
@@ -137,9 +137,9 @@ kamel -n %USER%-{tutorial-namespace} run \
 ====
 The service deployment may take several minutes to become available, to monitor the status:
 
-* `watch kubectl get pods` or `watch oc get pods`
+* `watch {kubernetes-cli} get pods` or `watch oc get pods`
 * `watch kamel get`
-* `watch kubectl get ksvc`  or `watch oc get ksvc`
+* `watch {kubernetes-cli} get ksvc`  or `watch oc get ksvc`
 ====
 
 include::advanced:partial$adv-kubectl-queries.adoc[tags="kgpow"]
@@ -283,7 +283,7 @@ spec:
 [#kamel-deploy-data-processor]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} -f eip/fruits-processor.yaml
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} -f eip/fruits-processor.yaml
 ----
 
 As the Camel-K controller takes few minutes to deploy the CamelSource, you can watch the pods of the `{tutorial-namespace}` namespace for its status:
@@ -313,7 +313,7 @@ Wondering why `fruit-producer` is not listed ?
 [#kamel-cbr-query-camelsources]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get  -n %USER%-{tutorial-namespace} camelsources
+watch {kubernetes-cli} get  -n %USER%-{tutorial-namespace} camelsources
 ----
 
 When the CamelSource deployment is successful you will see it in `READY` state as shown:
@@ -336,7 +336,7 @@ You can deploy the `fruit-events-display` application using the command:
 [#kamel-cbr-deploy-event-sub]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} \
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} \
   -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
 ----
 
@@ -431,16 +431,16 @@ You can deploy the Knative Event Trigger using the following command:
 [#kamel-cbr-deploy-trigger]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} -f eip/sugary-fruits.yaml
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} -f eip/sugary-fruits.yaml
 ----
 
-Let us check the status of the Trigger using the command `kubectl -n %USER%-{tutorial-namespace} get triggers` which should return one trigger called `sugary-fruits` with ready state as shown below. 
+Let us check the status of the Trigger using the command `{kubernetes-cli} -n %USER%-{tutorial-namespace} get triggers` which should return one trigger called `sugary-fruits` with ready state as shown below. 
 
 [.console-input]
 [#kamel-cbr-list-triggers]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get triggers
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get triggers
 ----
 
 As the trigger will dispatch its filtered event to `fruit-events-display` , the subscriber URI of the Trigger will be that of `fruit-events-display` service.
@@ -479,10 +479,10 @@ image::cbr_app_ui_with_data.png[align="center"]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
 kamel delete  -n %USER%-{tutorial-namespace} fruits-producer
-kubectl delete  -n %USER%-{tutorial-namespace} -f eip/fruits-processor.yaml
-kubectl delete  -n %USER%-{tutorial-namespace} -f eip/sugary-fruits.yaml
-kubectl delete -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
-kubectl delete -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
+{kubernetes-cli} delete  -n %USER%-{tutorial-namespace} -f eip/fruits-processor.yaml
+{kubernetes-cli} delete  -n %USER%-{tutorial-namespace} -f eip/sugary-fruits.yaml
+{kubernetes-cli} delete -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
+{kubernetes-cli} delete -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
 kn broker delete  -n %USER%-{tutorial-namespace} default
 kamel -n %USER%-{tutorial-namespace} reset
 kamel -n %USER%-{tutorial-namespace} uninstall

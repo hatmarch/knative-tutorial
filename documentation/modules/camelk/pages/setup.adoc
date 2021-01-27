@@ -33,7 +33,7 @@ As with other installations in this tutorial, this process will take a few minut
 [#camel-k-watch-pods]
 [source,bash,subs="+quotes,+attributes,+macros"]
 -----
-watch "kubectl -n %USER%-{tutorial-namespace} get pods"
+watch "{kubernetes-cli} -n %USER%-{tutorial-namespace} get pods"
 -----
 
 [NOTE]
@@ -84,7 +84,7 @@ Create the ConfigMap using the command:
 [#camel-k-maven-config]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl create configmap \
+{kubernetes-cli} create configmap \
   -n %USER%-{tutorial-namespace} my-camel-k-maven-settings \
   --from-file=settings.xml="$TUTORIAL_HOME/install/utils/camel-k-maven-settings.xml"
 ----
@@ -108,7 +108,7 @@ If you don't have a https://www.sonatype.com/download-oss-sonatype[Sonatype Nexu
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/nexus.yaml
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} -f $TUTORIAL_HOME/install/utils/nexus.yaml
 ----
 
 Wait for the nexus pod to be ready:
@@ -116,7 +116,7 @@ Wait for the nexus pod to be ready:
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl get -n %USER%-{tutorial-namespace} pods
+watch {kubernetes-cli} get -n %USER%-{tutorial-namespace} pods
 ----
 
 Once nexus is running you should see the following pod in the `{tutorial-namespace}`:
@@ -142,9 +142,9 @@ You need to use user `admin` to login. Nexus uses a generated password, to retri
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-export NEXUS_POD=$(kubectl -n %USER%-{tutorial-namespace} get pods \
+export NEXUS_POD=$({kubernetes-cli} -n %USER%-{tutorial-namespace} get pods \
   -lapp=nexus -ojsonpath='{.items[0].metadata.name}')
-kubectl exec $NEXUS_POD -- cat /nexus-data/admin.password
+{kubernetes-cli} exec $NEXUS_POD -- cat /nexus-data/admin.password
 ----
 
 You will be able to reset it after the first login. You can then <<configure-maven-repo>>.

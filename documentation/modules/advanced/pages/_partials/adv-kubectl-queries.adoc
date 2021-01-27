@@ -2,7 +2,7 @@
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-watch kubectl -n %USER%-{tutorial-namespace} get pods
+watch {kubernetes-cli} -n %USER%-{tutorial-namespace} get pods
 ----
 #end::kgpow[]
 
@@ -10,6 +10,6 @@ watch kubectl -n %USER%-{tutorial-namespace} get pods
 [.console-input]
 [source,bash,subs="+quotes,+attributes,+macros"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get ksvc
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get ksvc
 ----
 #end::kgksvc[]

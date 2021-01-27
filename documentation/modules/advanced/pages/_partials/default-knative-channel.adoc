@@ -33,7 +33,7 @@ Run the following command apply the Knative Eventing Channel configuration:
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl apply -f default-channel-config.yaml
+{kubernetes-cli} apply -f default-channel-config.yaml
 ----
 
 Since you have now made all Knative Eventing Channels of *{tutorial-namespace}* to be KafkaChannel, creating a Knative Eventing Channel in namespace *{tutorial-namespace}* will result in a corresponding Kafka Topic created. Let us now verify it by creating a sample Channel as show in listing,
@@ -68,7 +68,7 @@ my-events-ch   KafkaChannel   http://my-events-ch-kn-channel.%USER%-{tutorial-na
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl get -n %USER%-{tutorial-namespace} channels
+{kubernetes-cli} get -n %USER%-{tutorial-namespace} channels
 ----
 [.console-output]
 [source,bash,subs="+quotes,attributes+,+macros"]
@@ -84,7 +84,7 @@ And a corresponding `kafkachannel.messaging.knative.dev` with the same name `my-
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl get -n %USER%-{tutorial-namespace} kafkachannels
+{kubernetes-cli} get -n %USER%-{tutorial-namespace} kafkachannels
 ----
 
 [.console-output]
@@ -117,7 +117,7 @@ When listing the resources of `knative-eventing` , you should see an extra deplo
 [.console-input]
 [source,bash,subs="+quotes,attributes+,+macros"]
 ----
-kubectl get -n knative-eventing pods
+{kubernetes-cli} get -n knative-eventing pods
 ----
 
 [.console-output]
@@ -156,7 +156,7 @@ kn channel delete -n %USER%-{tutorial-namespace} my-events-ch
 [.console-input]
 [source,bash,subs="attributes+,+macros",linenums]
 ----
-kubectl -n %USER%-{tutorial-namespace} delete  channels.messaging.knative.dev my-events-ch
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete  channels.messaging.knative.dev my-events-ch
 ----
 --
 ====

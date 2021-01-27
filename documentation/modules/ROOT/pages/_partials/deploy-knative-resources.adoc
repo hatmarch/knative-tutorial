@@ -9,7 +9,7 @@ kubectl::
 [#{doc-sec}-kn-resources-apply]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl apply -n %USER%-{tutorial-namespace} -f link:{url}[{url-alt-text}]
+{kubernetes-cli} apply -n %USER%-{tutorial-namespace} -f link:{url}[{url-alt-text}]
 ----
 copyToClipboard::{doc-sec}-kn-resources-apply[]
 --

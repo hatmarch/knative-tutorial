@@ -54,7 +54,7 @@ kn channel list -n %USER%-{tutorial-namespace}
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get \
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get \
   channels.messaging.knative.dev 
 ----
 --
@@ -131,7 +131,7 @@ kubectl::
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} get pingsource.sources.knative.dev 
+{kubernetes-cli} -n %USER%-{tutorial-namespace} get pingsource.sources.knative.dev 
 ----
 
 Running  the above command should return the following result:
@@ -289,7 +289,7 @@ eventinghellob-sub   Channel:eventinghello-ch   ksvc:eventinghellob             
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} \
+{kubernetes-cli} -n %USER%-{tutorial-namespace} \
    get subscription.messaging.knative.dev 
 ----
 
@@ -312,7 +312,7 @@ If you wait approximately 2 minutes for the PingSource then you will see both `e
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-watch 'kubectl get pods -n %USER%-{tutorial-namespace}'
+watch '{kubernetes-cli} get pods -n %USER%-{tutorial-namespace}'
 ----
 
 .Watch pods in the %USER%-{tutorial-namespace}
@@ -363,12 +363,12 @@ kn channel delete -n %USER%-{tutorial-namespace} eventinghello-ch
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-helloa-sink.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-helloa-sub.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-hellob-sink.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f eventing-hellob-sub.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f event-source.yaml
-kubectl -n %USER%-{tutorial-namespace} delete -f channel.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-helloa-sink.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-helloa-sub.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-hellob-sink.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f eventing-hellob-sub.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f event-source.yaml
+{kubernetes-cli} -n %USER%-{tutorial-namespace} delete -f channel.yaml
 ----
 --
 ====

@@ -7,7 +7,7 @@ kubectl::
 [#camelk-get-k8s-int]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace}  get integrations.camel.apache.org
+{kubernetes-cli} -n %USER%-{tutorial-namespace}  get integrations.camel.apache.org
 ----
 copyToClipboard::camelk-get-k8s-int[]
 --
@@ -33,7 +33,7 @@ kubectl::
 [#camelk-get-k8s-svc]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace}  get svc
+{kubernetes-cli} -n %USER%-{tutorial-namespace}  get svc
 ----
 copyToClipboard::camelk-get-k8s-svc[]
 --
@@ -59,7 +59,7 @@ kubectl::
 [#camelk-get-k8s-dc]
 [source,bash,subs="+macros,+attributes"]
 ----
-kubectl -n %USER%-{tutorial-namespace}  get deployments
+{kubernetes-cli} -n %USER%-{tutorial-namespace}  get deployments
 ----
 copyToClipboard::camelk-get-k8s-dc[]
 --
