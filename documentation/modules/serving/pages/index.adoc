@@ -1,3 +1,5 @@
+:imagesdir: serving/images
+
 = Knative Serving 
 
 Knative Serving is ideal for running your application services inside Kubernetes by providing a more simplified deployment syntax with automated scale-to-zero and scale-out based on HTTP load. The Knative platform will manage your service’s deployments, revisions, networking and scaling.
@@ -9,4 +11,8 @@ In this chapter, we are going to deploy a Knative Serving service, see its use o
 ====
 For all exercises in this section, you can get a visualization of what is happening by opening the 
 Topology View of the `%USER%-knativetutorial` project: https://console-openshift-console.%CLUSTER_SUBDOMAIN%/topology/ns/%USER%-knativetutorial
+
+For example, using this whilst in the xref:eventing:eventing-src-to-sink.adoc#eventing-create-event-source[Knative Eventing Section] might yield this:
+
+image::topology-view.png[]
 ====
