@@ -11,7 +11,7 @@ From within a CodeReady Workspace terminal, run the following command:
 [source,bash,subs="attributes+,+macros"]
 ----
 cd $CHE_PROJECTS_ROOT
-git clone -b {branch} {repo}
+git clone -b {branch} {repo-base}
 export TUTORIAL_HOME="$(pwd)/knative-tutorial"
 ----
 
