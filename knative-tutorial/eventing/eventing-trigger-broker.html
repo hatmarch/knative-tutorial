@@ -322,7 +322,7 @@
 <h2 id="broker"><a class="anchor" href="#broker"></a>Broker</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/default-broker.yaml">default-broker</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/default-broker.yaml">default-broker</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
 apiVersion: eventing.knative.dev/v1
@@ -354,7 +354,7 @@ metadata:
 <div class="tab-pane" aria-labelledby="tabset1_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/default-broker.yaml">default-broker.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/default-broker.yaml">${TUTORIAL_HOME}/eventing/default-broker.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -412,7 +412,7 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/%USER%-{tutor
 <p>Now, that you have the broker configured, you need to create the sinks <code>eventingaloha</code> and <code>eventingbonjour</code>, which will receive the filtered events.</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventing-aloha-sink.yaml">eventing-aloha-sink.yaml</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/eventing-aloha-sink.yaml">eventing-aloha-sink.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -430,7 +430,7 @@ spec:
 </div>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/eventing-bonjour-sink.yaml">eventing-bonjour-sink.yaml</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/eventing-bonjour-sink.yaml">eventing-bonjour-sink.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -494,7 +494,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset3_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-aloha-sink.yaml">eventing-aloha-sink.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/eventing-aloha-sink.yaml">${TUTORIAL_HOME}/eventing/eventing-aloha-sink.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -529,7 +529,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset4_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/eventing-bonjour-sink.yaml">eventing-bonjour-sink.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/eventing-bonjour-sink.yaml">${TUTORIAL_HOME}/eventing/eventing-bonjour-sink.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -549,7 +549,7 @@ spec:
 <p>Now create the the trigger for <code>eventingaloha</code> that will associate the filtered events to a service:</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/trigger-helloaloha.yaml">trigger-helloaloha.yaml</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/trigger-helloaloha.yaml">trigger-helloaloha.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: eventing.knative.dev/v1
 kind: Trigger
@@ -606,7 +606,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset5_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/trigger-helloaloha.yaml">trigger-helloaloha.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/trigger-helloaloha.yaml">${TUTORIAL_HOME}/eventing/trigger-helloaloha.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -619,7 +619,7 @@ spec:
 <p>Now create the the trigger for <code>eventingbonjour</code> that will associate the filtered events to a service:</p>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/trigger-hellobonjour.yaml">trigger-hellobonjour.yaml</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/trigger-hellobonjour.yaml">trigger-hellobonjour.yaml</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: eventing.knative.dev/v1
 kind: Trigger
@@ -666,7 +666,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset6_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/trigger-hellobonjour.yaml">trigger-hellobonjour.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/eventing/trigger-hellobonjour.yaml">${TUTORIAL_HOME}/eventing/trigger-hellobonjour.yaml</a></code></pre>
 </div>
 </div>
 </div>

@@ -352,7 +352,7 @@
 <div class="sect2">
 <h3 id="_deploy_greeter_service_revision_v1"><a class="anchor" href="#_deploy_greeter_service_revision_v1"></a>Deploy greeter service revision v1</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/greeter-v1-service.yaml">greeter-v1</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/serving/greeter-v1-service.yaml">greeter-v1</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -365,12 +365,12 @@ spec:
     spec:
       containers:
         - image: quay.io/rhdevelopers/knative-tutorial-greeter:quarkus
-          livenessProbe:
-            httpGet:
-              path: /healthz
-          readinessProbe:
-            httpGet:
-              path: /healthz</code></pre>
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthz
+          # readinessProbe:
+          #   httpGet:
+          #     path: /healthz</code></pre>
 </div>
 </div>
 <div class="tabset is-loading">
@@ -397,7 +397,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset1_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/greeter-v1-service.yaml">greeter-v1-service.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/serving/greeter-v1-service.yaml">${TUTORIAL_HOME}/serving/greeter-v1-service.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -407,7 +407,7 @@ spec:
 <div class="sect2">
 <h3 id="_deploy_greeter_service_revision_v2"><a class="anchor" href="#_deploy_greeter_service_revision_v2"></a>Deploy greeter service revision v2</h3>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/greeter-v2-service.yaml">greeter-v2</a></div>
+<div class="title"><a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/serving/greeter-v2-service.yaml">greeter-v2</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.knative.dev/v1
 kind: Service
@@ -423,12 +423,12 @@ spec:
           env:
             - name: MESSAGE_PREFIX
               value: Namaste
-          livenessProbe:
-            httpGet:
-              path: /healthz
-          readinessProbe:
-            httpGet:
-              path: /healthz</code></pre>
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthz
+          # readinessProbe:
+          #   httpGet:
+          #     path: /healthz</code></pre>
 </div>
 </div>
 <div class="tabset is-loading">
@@ -456,7 +456,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset2_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/greeter-v2-service.yaml">greeter-v2-service.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/serving/greeter-v2-service.yaml">${TUTORIAL_HOME}/serving/greeter-v2-service.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -632,7 +632,7 @@ spec:
 </table>
 </div>
 <div class="paragraph">
-<p>Before you apply the resource <code>$TUTORIAL_HOME/basics/service-pinned.yaml</code>, call the <code>greeter</code> service again to verify that it is still providing the response from <code>greeter-v2</code> that includes <code>Namaste</code>.</p>
+<p>Before you apply the resource <code>$TUTORIAL_HOME/serving/service-pinned.yaml</code>, call the <code>greeter</code> service again to verify that it is still providing the response from <code>greeter-v2</code> that includes <code>Namaste</code>.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -690,7 +690,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset5_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/service-pinned.yaml">service-pinned.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/serving/service-pinned.yaml">${TUTORIAL_HOME}/serving/service-pinned.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -866,7 +866,7 @@ spec:
 <div class="tab-pane" aria-labelledby="tabset6_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/serving/knative/service-canary.yaml">service-canary.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/hatmarch/knative-tutorial/blob/services-australia/serving/service-canary.yaml">${TUTORIAL_HOME}/serving/service-canary.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -944,7 +944,7 @@ greeter-v2-deployment-9984bb56d-n7xvm    2/2     Running   2s</code></pre>
 <div class="sectionbody">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn -n %USER%-knativetutorial  service delete greeter</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn -n %USER%-knativetutorial service delete greeter</code></pre>
 </div>
 </div>
 </div>

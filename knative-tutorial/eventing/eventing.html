@@ -354,7 +354,66 @@
 <div class="sect1">
 <h2 id="eventing-watch-logs"><a class="anchor" href="#eventing-watch-logs"></a>Watching Logs</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>In the eventing related subsections of this tutorial, event sources are configured to emit events every minute with a <code>PingSource</code> or with a <code>ContainerSource</code>.</p>
+</div>
+<div class="paragraph">
+<p>The logs could be watched using the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc logs -n %USER%-knativetutorial -f &lt;pod-name&gt; -c user-container</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Using stern with the command <code>stern  -n %USER%-knativetutorial eventing-hello</code>, to filter the logs further add <code>-c user-container</code> to the stern command.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">stern -n %USER%-knativetutorial -c user-container eventing-hello</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The logs will have the output like below printing every 2 minutes.</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code>INFO  [com.red.dev.dem.GreetingService] (XNIO-1 task-1) Event Message Received
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container  {
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container   "message" : "Thanks for doing Knative Tutorial",
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container   "host" : "Event  greeter =&gt; 'event-greeter-5cbh5-pod-52d8fb' : 1",
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container   "time" : "13:50:07"
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(OR)</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code>INFO  [com.red.dev.dem.GreetingService] (XNIO-1 task-1) Event Message Received
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container  {
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container   "message" : "Thanks for doing Knative Tutorial",
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container   "host" : "Event  greeter =&gt; 'event-greeter-5cbh5-pod-52d8fb' : 2",
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container   "time" : "13:52:07"
+event-greeter-g94kp-deployment-89f66cb58-wjl2v user-container }</code></pre>
+</div>
+</div>
 </div>
 </div>
 <nav class="pagination">
