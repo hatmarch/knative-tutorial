@@ -44,3 +44,20 @@ oc new-project %USER%-knativetutorial
 You can open multiple terminals and then dock them to different parts of the CodeReady Workspace window so that you can see two terminals at once (for instance if you were running `stern` in one and issuing commands from the other):
 
 image:crw-terminals.gif[1920]
+
+== Visualizing These Exercises
+
+For all exercises in this section, you can get a visualization of what is happening by opening the 
+Topology View of the `%USER%-knativetutorial` project.
+
+To open this, *copy and paste* this link into your browser:
+
+[.console-input]
+[source,bash,subs="+macros,+attributes"]
+----
+https://console-openshift-console.%CLUSTER_SUBDOMAIN%/topology/ns/%USER%-knativetutorial
+----
+
+For example, using this whilst in the xref:eventing:eventing-src-to-sink.adoc#eventing-create-event-source[Knative Eventing Section] might yield this:
+
+image::topology-view.png[]
