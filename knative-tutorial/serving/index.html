@@ -325,16 +325,14 @@ Knative Serving exposes your service via an HTTP URL and has a lot of sane defau
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For all exercises in this section, you can get a visualization of what is happening by opening the
-Topology View of the <code>%USER%-knativetutorial</code> project: <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%/topology/ns/%USER%-knativetutorial" class="bare">https://console-openshift-console.%CLUSTER_SUBDOMAIN%/topology/ns/%USER%-knativetutorial</a></p>
+<p>Many of the execises make use of the
+<a href="https://github.com/knative/client">Knative Client</a> which is the command line utility aimed at enhancing the developer experience when doing Knative Serving and Eventing tasks.</p>
 </div>
 <div class="paragraph">
-<p>For example, using this whilst in the <a href="../eventing/eventing-src-to-sink.html#eventing-create-event-source" class="page">Knative Eventing Section</a> might yield this:</p>
+<p>The <code>kn</code> command has already been installed in the CodeReady Workspace that you&#8217;re using in your lab today.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/topology-view.png" alt="topology view">
-</div>
+<div class="paragraph">
+<p>You also have the option of interacting with Knative via the Kubernetes API (using <code>oc</code> or <code>kubectl</code>) and for most exercises you&#8217;ll be able to see these two ways of interacting side by side.</p>
 </div>
 </td>
 </tr>
