@@ -1,3 +1,5 @@
+:imagesdir: images
+
 [#setup-crw]
 == Running from CodeReady Workspaces
 
@@ -36,3 +38,9 @@ and then run the following command within the terminal
 ----
 oc new-project %USER%-knativetutorial
 ----
+
+== Running Multiple Terminals
+
+You can open multiple terminals and then dock them to different parts of the CodeReady Workspace window so that you can see two terminals at once (for instance if you were running `stern` in one and issuing commands from the other):
+
+image:crw-terminals.gif[1920]
