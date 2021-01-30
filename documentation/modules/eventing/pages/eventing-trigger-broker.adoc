@@ -169,10 +169,10 @@ The command should show the output as:
 [.console-output]
 [source,bash]
 ----
-http://broker-ingress.knative-eventing.svc.cluster.local/{tutorial-namespace}/default
+http://broker-ingress.knative-eventing.svc.cluster.local/%USER%-{tutorial-namespace}/default
 ----
 
-You should notice that the subscriberURIs are Kubernetes services with the suffix of `{tutorial-namespace}.svc.cluster.local`.  This means they can be interacted with from another pod within the Kubernetes cluster.
+You should notice that the subscriberURIs are Kubernetes services with the suffix of `%USER%-{tutorial-namespace}.svc.cluster.local`.  This means they can be interacted with from another pod within the Kubernetes cluster.
 
 Now that you have setup the Broker and Triggers you need to send in some test messages to see the behavior.
 
@@ -226,7 +226,7 @@ Using the `curler` pod's shell, curl the subcriberURI for eventingaloha:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-curl -v "http://eventingaloha.{tutorial-namespace}.svc.cluster.local" \
+curl -v "http://eventingaloha.%USER%-{tutorial-namespace}.svc.cluster.local" \
 -X POST \
 -H "Ce-Id: say-hello" \
 -H "Ce-Specversion: 1.0" \
@@ -260,7 +260,7 @@ Next, curl the subcriberURI for `eventingbonjour`:
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-curl -v "http://eventingbonjour.{tutorial-namespace}.svc.cluster.local" \
+curl -v "http://eventingbonjour.%USER%-{tutorial-namespace}.svc.cluster.local" \
 -X POST \
 -H "Ce-Id: say-hello" \
 -H "Ce-Specversion: 1.0" \
@@ -296,7 +296,7 @@ Now, trigger both `eventingaloha` and `eventingbonjour` by curling the subcriber
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-curl -v "http://broker-ingress.knative-eventing.svc.cluster.local/{tutorial-namespace}/default" \
+curl -v "http://broker-ingress.knative-eventing.svc.cluster.local/%USER%-{tutorial-namespace}/default" \
 -X POST \
 -H "Ce-Id: say-hello" \
 -H "Ce-Specversion: 1.0" \
