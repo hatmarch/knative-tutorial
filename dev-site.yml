@@ -2,7 +2,7 @@ runtime:
   cache_dir: ./.cache/antora
 
 site:
-  title: Knative Tutorial Test
+  title: Knative Tutorial (Workshop)
   url: https://hatmarch.github.io/knative-tutorial
   start_page: knative-tutorial::index.adoc
 
@@ -18,7 +18,7 @@ content:
 asciidoc:
   attributes:
     tutorial-namespace: knativetutorial
-    branch: services-australia
+    branch: doe
     repo-base: https://github.com/hatmarch/knative-tutorial
     workshop-domain: guru.devx.red
     minikube-version: v1.14.1
