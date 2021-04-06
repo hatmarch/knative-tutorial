@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Applying Content Based Routing EIP :: Knative Tutorial Test</title>
+    <title>Applying Content Based Routing EIP :: Knative Tutorial (Workshop)</title>
     <link rel="canonical" href="https://hatmarch.github.io/knative-tutorial/knative-tutorial/advanced/camel-k-cbr.html">
-    <link rel="prev" href="eventing-with-kafka.html">
-    <link rel="next" href="../serving/faq.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
@@ -18,7 +16,7 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
           src="../../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
-      <a class="navbar-item" href="https://hatmarch.github.io/knative-tutorial">Knative Tutorial Test</a>
+      <a class="navbar-item" href="https://hatmarch.github.io/knative-tutorial">Knative Tutorial (Workshop)</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -74,46 +72,7 @@
     <a class="nav-link" href="../setup/setup.html">Setup</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../setup/tutorial-sources.html#download-tutorial-sources">Download Tutorial Sources</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../setup/kubernetes-cluster.html#kubernetes-cluster">Choose your Kubernetes Cluster</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../setup/minikube.html">Minikube</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#start-minikube">Configure and Start Minikube</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#minikube-deploy-registry">Deploy Registry</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#install-knative-serving">Install Knative Serving</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#install-kourier-ingress-gateway">Install Kourier Ingress Gateway</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#install-ingress-controller">Install Ingress Controller</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#install-knative-eventing">Install Knative Eventing</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../setup/minikube.html#create-tutorial-namespace">Create Tutorial Namespace</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../setup/openshift.html">OpenShift</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../setup/setup.html">Development Environment</a>
+    <a class="nav-link" href="../setup/setup-crw.html">CodeReady Workspace Setup</a>
   </li>
 </ul>
   </li>
@@ -123,68 +82,8 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../serving/knative-client.html">Knative Client</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../serving/knative-client.html#kn-install">Install</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../serving/knative-client.html#kn-ksvc">Knative Service Commands</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-create-ksvc">Create Knative Service</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-list-services">List Knative Services</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-update-ksvc">Update Knative Service</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-desc-ksvc">Describe Knative Service</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-delete-ksvc">Delete Knative Service</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../serving/knative-client.html#kn-revisons">Knative Revision Commands</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-revisions-list">Knative Revision List</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-revisions-desc">Knative Revision Describe</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-revisions-delete">Knative Revision Delete</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../serving/knative-client.html#kn-routes">Knative Route Commands</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/knative-client.html#kn-route-list">Knative Revision List</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../serving/basic-fundas.html">Serving</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../serving/basic-fundas.html#basics-prerequisite">Prerequisites</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../serving/basic-fundas.html#basics-build-containers">Build Containers</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../serving/basic-fundas.html#basics-deploy-service">Deploy Service</a>
   </li>
@@ -219,7 +118,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../serving/scaling.html">Scaling</a>
+    <a class="nav-link" href="../serving/scaling.html">Auto Scaling</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../serving/scaling.html#scaling-deploy-service">Deploy Service</a>
@@ -228,19 +127,7 @@
     <a class="nav-link" href="../serving/scaling.html#scaling-invoke-service">Invoke Service</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../serving/scaling.html#scaling-scale-to-zero">Scale to Zero</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/scaling.html#scaling-observer-scale-to-zero">Observing Default Scale Down</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/scaling.html#scaling-observer-scale-to-zero-1m">Change Scale-to-Zero Time</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../serving/scaling.html#scaling-reset-to-defaults">Reset to Defaults</a>
-  </li>
-</ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -384,147 +271,6 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../camelk/index.html">Apache Camel-K</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../camelk/setup.html">Setup</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/setup.html#install-camel-k">Install Camel-K </a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../camelk/camel-k-basics.html">Camel-K with Knative Serving</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-basics.html#deploy-camel-k-integration">Deploy Camel-K integration</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-basics.html#deploy-camel-k-kn-integration">Deploy Camel-K Knative Integration</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-basics.html#camelk-gs-cleanup">Cleanup</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../camelk/camel-k-eventing.html">Camel-K with Knative Eventing</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-eventing.html#deploy-camel-k-source">Deploy Knative CamelSource</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-eventing.html#logging-ce-messages">View CloudEvents Messages</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-eventing.html#camel-k-es-sink">CamelSource to Sink</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../camelk/camel-k-eventing.html#camelk-eventing-cleanup">Cleanup</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Advanced</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Knative Eventing</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="deploy-apache-kafka.html">Deploy Apache Kafka</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="deploy-apache-kafka.html#create-kafka-topic">Create Topic</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="deploy-apache-kafka.html#kafka-producer">Run Producer</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="deploy-apache-kafka.html#kafka-consumer">Run Consumer</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="eventing-with-kafka.html">Knative Eventing with Apache Kafka</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="eventing-with-kafka.html#kn-eventing-kafka-source">Deploy KafkaSource</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="eventing-with-kafka.html#kn-eventing-adv-default-knative-channel">Kafka Knative Channel</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="eventing-with-kafka.html#kn-eventing-kafka-source-to-sink">Kafka Source to Sink</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="eventing-with-kafka.html#kn-eventing-kafka-auto-scaling">Auto Scaling with Kafka</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="eventing-with-kafka.html#kn-kafka-src-cleanup">Cleanup</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">EIP with Apache Camel-K</span>
-<ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="camel-k-cbr.html">Content Based Routing</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#cbr-app-overview">Application Overview</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#label-namespace-for-default-broker">Create Broker</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#camel-k-cbr-data-producer">Deploy Data Producer</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#camel-k-cbr-data-processor">Deploy Data Processor</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#camel-k-cbr-event-subscriber">Deploy Event Subscriber</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#camel-k-cbr-event-filter">Apply Knative Filter</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#verify-e2e">Verify End to End</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#kamel-cbr-cleanup">Cleanup</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Appendix</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../serving/faq.html">Frequently Asked Questions</a>
-  </li>
-</ul>
-  </li>
 </ul>
   </nav>
 </div>
@@ -554,12 +300,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Knative Tutorial</a></li>
-    <li><a href="index.html">Advanced</a></li>
-    <li>EIP with Apache Camel-K</li>
-    <li><a href="camel-k-cbr.html">Content Based Routing</a></li>
+    <li><a href="camel-k-cbr.html">Applying Content Based Routing EIP</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///workspaces/knative-tutorial/documentation/modules/advanced/pages/camel-k-cbr.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///workspaces/cloud-native-workshop-v2m4-guides/knative-tutorial/documentation/modules/advanced/pages/camel-k-cbr.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <article class="doc">
@@ -656,7 +400,7 @@
 </div>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/default-broker.yaml">default-broker</a></div>
+<div class="title"><a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/doe/eventing/default-broker.yaml">default-broker</a></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
 apiVersion: eventing.knative.dev/v1
@@ -672,7 +416,7 @@ metadata:
 <p><a id="tabset1_kn"></a>kn</p>
 </li>
 <li>
-<p><a id="tabset1_kubectl"></a>kubectl</p>
+<p><a id="tabset1_oc"></a>oc</p>
 </li>
 </ul>
 </div>
@@ -681,14 +425,14 @@ metadata:
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn broker create default \
-  --namespace knativetutorial</code></pre>
+  --namespace %USER%-knativetutorial</code></pre>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset1_kubectl">
+<div class="tab-pane" aria-labelledby="tabset1_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/services-australia/eventing/knative/default-broker.yaml">default-broker.yaml</a></code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f <a href="https://github.com/redhat-developer-demos/knative-tutorial/blob/doe/eventing/default-broker.yaml">${TUTORIAL_HOME}/eventing/default-broker.yaml</a></code></pre>
 </div>
 </div>
 </div>
@@ -704,7 +448,7 @@ metadata:
 <p><a id="tabset2_kn"></a>kn</p>
 </li>
 <li>
-<p><a id="tabset2_kubectl"></a>kubectl</p>
+<p><a id="tabset2_oc"></a>oc</p>
 </li>
 </ul>
 </div>
@@ -712,26 +456,26 @@ metadata:
 <div class="tab-pane" aria-labelledby="tabset2_kn">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn broker -n knativetutorial list</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kn broker -n %USER%-knativetutorial list</code></pre>
 </div>
 </div>
 <div class="listingblock console-output">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME      URL                                                                                AGE    CONDITIONS   READY   REASON
-default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutorial/default   112s   5 OK / 5     True</code></pre>
+default   http://broker-ingress.knative-eventing.svc.cluster.local/%USER%-{tutorial-namespace}/default   112s   5 OK / 5     True</code></pre>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset2_kubectl">
+<div class="tab-pane" aria-labelledby="tabset2_oc">
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl get broker.eventing.knative.dev -n knativetutorial</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get broker.eventing.knative.dev -n %USER%-knativetutorial</code></pre>
 </div>
 </div>
 <div class="listingblock console-output">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME      URL                                                                                AGE     READY   REASON
-default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutorial/default   2m57s   True</code></pre>
+default   http://broker-ingress.knative-eventing.svc.cluster.local/%USER%-{tutorial-namespace}/default   2m57s   True</code></pre>
 </div>
 </div>
 </div>
@@ -758,7 +502,7 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutori
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -766,7 +510,7 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutori
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl rollout status deploy fruityvice-proxy</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc rollout status deploy fruityvice-proxy</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -809,7 +553,7 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutori
 </div>
 <div id="kamel-cbr-deploy-fruit-producer" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kamel -n knativetutorial run \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kamel -n %USER%-knativetutorial run \
  --wait \
  --dependency camel:log \
  --dependency camel:jackson \
@@ -830,13 +574,13 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutori
 <div class="ulist">
 <ul>
 <li>
-<p><code>watch kubectl get pods</code> or <code>watch oc get pods</code></p>
+<p><code>watch oc get pods</code> or <code>watch oc get pods</code></p>
 </li>
 <li>
 <p><code>watch kamel get</code></p>
 </li>
 <li>
-<p><code>watch kubectl get ksvc</code>  or <code>watch oc get ksvc</code></p>
+<p><code>watch oc get ksvc</code>  or <code>watch oc get ksvc</code></p>
 </li>
 </ul>
 </div>
@@ -846,7 +590,7 @@ default   http://broker-ingress.knative-eventing.svc.cluster.local/knativetutori
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch kubectl -n knativetutorial get pods</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch oc -n %USER%-knativetutorial get pods</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -863,7 +607,7 @@ fruityvice-proxy-76d6ff5f7f-rlrqh                   1/1     Running   4m1
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n knativetutorial get ksvc</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc -n %USER%-knativetutorial get ksvc</code></pre>
 </div>
 </div>
 <div class="listingblock console-output">
@@ -1016,7 +760,7 @@ spec:
 </div>
 <div id="kamel-deploy-data-processor" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f eip/fruits-processor.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f eip/fruits-processor.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1024,7 +768,7 @@ spec:
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch kubectl -n knativetutorial get pods</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch oc -n %USER%-knativetutorial get pods</code></pre>
 </div>
 </div>
 <div class="listingblock console-output">
@@ -1058,7 +802,7 @@ fruityvice-proxy-76d6ff5f7f-rlrqh         1/1     Running   24m</code></pre>
 </div>
 <div id="kamel-cbr-query-camelsources" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch kubectl get  -n knativetutorial camelsources</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch oc get  -n %USER%-knativetutorial camelsources</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1083,7 +827,7 @@ fruits-processor   True             2m22s</code></pre>
 </div>
 <div id="kamel-cbr-deploy-event-sub" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial \
   -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml</code></pre>
 </div>
 </div>
@@ -1092,7 +836,7 @@ fruits-processor   True             2m22s</code></pre>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch kubectl -n knativetutorial get pods</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">watch oc -n %USER%-knativetutorial get pods</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1126,14 +870,14 @@ fruityvice-proxy-76d6ff5f7f-rlrqh          1/1     Running   24m</code></pre>
 <div class="tab-pane" aria-labelledby="tabset3_minikube">
 <div id="kamel-open-fruit-ui" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">minikube -p knativetutorial -n knativetutorial service fruit-events-display</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">minikube -p %USER%-knativetutorial -n %USER%-knativetutorial service fruit-events-display</code></pre>
 </div>
 </div>
 </div>
 <div class="tab-pane" aria-labelledby="tabset3_openshift">
 <div id="kamel-open-fruit-expose" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc expose -n knativetutorial service fruit-events-display</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc expose -n %USER%-knativetutorial service fruit-events-display</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1141,7 +885,7 @@ fruityvice-proxy-76d6ff5f7f-rlrqh          1/1     Running   24m</code></pre>
 </div>
 <div id="kamel-open-fruit-rt" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get -n knativetutorial route fruit-events-display</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get -n %USER%-knativetutorial route fruit-events-display</code></pre>
 </div>
 </div>
 </div>
@@ -1203,15 +947,15 @@ spec:
 </div>
 <div id="kamel-cbr-deploy-trigger" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl apply -n knativetutorial -f eip/sugary-fruits.yaml</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -n %USER%-knativetutorial -f eip/sugary-fruits.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Let us check the status of the Trigger using the command <code>kubectl -n knativetutorial get triggers</code> which should return one trigger called <code>sugary-fruits</code> with ready state as shown below.</p>
+<p>Let us check the status of the Trigger using the command <code>oc -n %USER%-knativetutorial get triggers</code> which should return one trigger called <code>sugary-fruits</code> with ready state as shown below.</p>
 </div>
 <div id="kamel-cbr-list-triggers" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kubectl -n knativetutorial get triggers</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc -n %USER%-knativetutorial get triggers</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1220,7 +964,7 @@ spec:
 <div class="listingblock console-output">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME           READY BROKER    SUBSCRIBER_URI
-sugary-fruits  True  default   <a href="http://fruits-events-display.knativetutorial.svc.cluster.local/" class="bare">http://fruits-events-display.knativetutorial.svc.cluster.local/</a></code></pre>
+sugary-fruits  True  default   <a href="http://fruits-events-display.%USER%-knativetutorial.svc.cluster.local/" class="bare">http://fruits-events-display.%USER%-knativetutorial.svc.cluster.local/</a></code></pre>
 </div>
 </div>
 </div>
@@ -1255,14 +999,14 @@ sugary-fruits  True  default   <a href="http://fruits-events-display.knativetuto
 <div class="sectionbody">
 <div id="camelk-cbr-cleanup" class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kamel delete  -n knativetutorial fruits-producer
-kubectl delete  -n knativetutorial -f eip/fruits-processor.yaml
-kubectl delete  -n knativetutorial -f eip/sugary-fruits.yaml
-kubectl delete -n knativetutorial -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
-kubectl delete -n knativetutorial -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
-kn broker delete  -n knativetutorial default
-kamel -n knativetutorial reset
-kamel -n knativetutorial uninstall</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">kamel delete  -n %USER%-knativetutorial fruits-producer
+oc delete  -n %USER%-knativetutorial -f eip/fruits-processor.yaml
+oc delete  -n %USER%-knativetutorial -f eip/sugary-fruits.yaml
+oc delete -n %USER%-knativetutorial -f $TUTORIAL_HOME/install/utils/fruit-events-display.yaml
+oc delete -n %USER%-knativetutorial -f $TUTORIAL_HOME/install/utils/fruityvice-proxy.yaml
+kn broker delete  -n %USER%-knativetutorial default
+kamel -n %USER%-knativetutorial reset
+kamel -n %USER%-knativetutorial uninstall</code></pre>
 </div>
 </div>
 </div>
@@ -1273,10 +1017,6 @@ kamel -n knativetutorial uninstall</code></pre>
 <a href="#_footnoteref_1">1</a>. <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/ContentBasedRouter.html" class="bare">https://www.enterpriseintegrationpatterns.com/patterns/messaging/ContentBasedRouter.html</a>
 </div>
 </div>
-<nav class="pagination">
-  <span class="prev"><a href="eventing-with-kafka.html">Knative Eventing with Apache Kafka</a></span>
-  <span class="next"><a href="../serving/faq.html">Frequently Asked Questions</a></span>
-</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
